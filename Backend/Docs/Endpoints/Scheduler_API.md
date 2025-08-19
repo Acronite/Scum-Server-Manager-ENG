@@ -1,20 +1,20 @@
-# API do Scheduler Backend
+# Backend Scheduler API
 
-## Visão Geral
+## Overview
 
-O sistema de scheduler backend permite executar automaticamente uma sequência de endpoints a cada 30 segundos, como alternativa ao frontend. O sistema implementa uma abordagem híbrida onde o backend pode executar independentemente, mas o frontend ainda pode executar quando necessário.
+The backend scheduler system allows automatically executing a sequence of endpoints every 30 seconds, as an alternative to the frontend. The system implements a hybrid approach where the backend can run independently, but the frontend can still execute when needed.
 
-## Endpoints Disponíveis
+## Available Endpoints
 
 ### 1. GET /api/scheduler/status
 
-**Descrição:** Obtém o status atual do scheduler
+**Description:** Gets the current scheduler status
 
-**Resposta de Sucesso:**
+**Success Response:**
 ```json
 {
   "success": true,
-  "message": "Status do scheduler recuperado com sucesso",
+  "message": "Scheduler status retrieved successfully",
   "data": {
     "isRunning": true,
     "enabled": true,
@@ -44,13 +44,13 @@ O sistema de scheduler backend permite executar automaticamente uma sequência d
 
 ### 2. POST /api/scheduler/start
 
-**Descrição:** Inicia o scheduler backend
+**Description:** Starts the backend scheduler
 
-**Resposta de Sucesso:**
+**Success Response:**
 ```json
 {
   "success": true,
-  "message": "Scheduler iniciado com sucesso",
+  "message": "Scheduler started successfully",
   "data": {
     "isRunning": true,
     "enabled": true,
@@ -80,13 +80,13 @@ O sistema de scheduler backend permite executar automaticamente uma sequência d
 
 ### 3. POST /api/scheduler/stop
 
-**Descrição:** Para o scheduler backend
+**Description:** Stops the backend scheduler
 
-**Resposta de Sucesso:**
+**Success Response:**
 ```json
 {
   "success": true,
-  "message": "Scheduler parado com sucesso",
+  "message": "Scheduler stopped successfully",
   "data": {
     "isRunning": false,
     "enabled": true,
@@ -116,13 +116,13 @@ O sistema de scheduler backend permite executar automaticamente uma sequência d
 
 ### 4. POST /api/scheduler/execute
 
-**Descrição:** Executa manualmente a sequência de endpoints
+**Description:** Manually executes the endpoint sequence
 
-**Resposta de Sucesso:**
+**Success Response:**
 ```json
 {
   "success": true,
-  "message": "Execução manual realizada com sucesso",
+  "message": "Manual execution completed successfully",
   "data": {
     "success": true,
     "executionTime": 8500,
@@ -167,13 +167,13 @@ O sistema de scheduler backend permite executar automaticamente uma sequência d
 
 ### 5. GET /api/scheduler/can-frontend-execute
 
-**Descrição:** Verifica se o frontend pode executar (para evitar conflitos)
+**Description:** Checks if frontend can execute (to avoid conflicts)
 
-**Resposta de Sucesso:**
+**Success Response:**
 ```json
 {
   "success": true,
-  "message": "Verificação de execução do frontend realizada",
+  "message": "Frontend execution check completed",
   "data": {
     "canExecute": false,
     "schedulerStatus": {
@@ -206,13 +206,13 @@ O sistema de scheduler backend permite executar automaticamente uma sequência d
 
 ### 6. POST /api/scheduler/frontend-execute
 
-**Descrição:** Executa a sequência pelo frontend (se permitido)
+**Description:** Executes the sequence via frontend (if allowed)
 
-**Resposta de Sucesso:**
+**Success Response:**
 ```json
 {
   "success": true,
-  "message": "Execução do frontend realizada com sucesso",
+  "message": "Frontend execution completed successfully",
   "data": {
     "success": true,
     "executionTime": 8200,
@@ -255,17 +255,17 @@ O sistema de scheduler backend permite executar automaticamente uma sequência d
 }
 ```
 
-**Resposta de Erro (quando não pode executar):**
+**Error Response (when cannot execute):**
 ```json
 {
   "success": false,
-  "error": "Frontend não pode executar neste momento"
+  "error": "Frontend cannot execute at this time"
 }
 ```
 
-## Configuração
+## Configuration
 
-O scheduler é configurado no arquivo `src/data/server/config.json`:
+The scheduler is configured in file `src/data/server/config.json`:
 
 ```json
 {
@@ -288,44 +288,44 @@ O scheduler é configurado no arquivo `src/data/server/config.json`:
 }
 ```
 
-## Lógica de Controle
+## Control Logic
 
-### Prioridade de Execução:
-1. **Backend** tem prioridade quando ativo
-2. **Frontend** só executa se backend estiver inativo ou se passou tempo suficiente
-3. **Execução manual** sempre disponível
+### Execution Priority:
+1. **Backend** has priority when active
+2. **Frontend** only executes if backend is inactive or if enough time has passed
+3. **Manual execution** always available
 
-### Prevenção de Conflitos:
-- Se backend executou há < 24 segundos → frontend não executa
-- Se frontend executou há < 24 segundos → backend não executa
-- Logs detalhados de qual fonte executou
+### Conflict Prevention:
+- If backend executed < 24 seconds ago → frontend doesn't execute
+- If frontend executed < 24 seconds ago → backend doesn't execute
+- Detailed logs of which source executed
 
-### Estados do Sistema:
-- **Backend Ativo + Frontend Ativo**: Backend executa, frontend monitora
-- **Backend Inativo + Frontend Ativo**: Frontend executa normalmente
-- **Backend Ativo + Frontend Inativo**: Apenas backend executa
-- **Ambos Inativos**: Nenhuma execução automática
+### System States:
+- **Backend Active + Frontend Active**: Backend executes, frontend monitors
+- **Backend Inactive + Frontend Active**: Frontend executes normally
+- **Backend Active + Frontend Inactive**: Only backend executes
+- **Both Inactive**: No automatic execution
 
-## Implementação no Frontend
+## Frontend Implementation
 
-### Verificação Antes de Executar:
+### Check Before Executing:
 ```javascript
-// Verificar se pode executar antes de fazer a chamada
+// Check if can execute before making the call
 const response = await fetch('/api/scheduler/can-frontend-execute');
 const data = await response.json();
 
 if (data.data.canExecute) {
-  // Executar normalmente
+  // Execute normally
   await executeEndpoints();
 } else {
-  // Backend está executando, apenas monitorar
-  console.log('Backend está executando, aguardando...');
+  // Backend is executing, just monitor
+  console.log('Backend is executing, waiting...');
 }
 ```
 
-### Monitoramento de Status:
+### Status Monitoring:
 ```javascript
-// Verificar status periodicamente
+// Check status periodically
 setInterval(async () => {
   const response = await fetch('/api/scheduler/status');
   const data = await response.json();
@@ -334,9 +334,9 @@ setInterval(async () => {
 }, 5000);
 ```
 
-### Controles de Interface:
+### Interface Controls:
 ```javascript
-// Botões de controle
+// Control buttons
 const startScheduler = async () => {
   await fetch('/api/scheduler/start', { method: 'POST' });
 };
@@ -350,26 +350,26 @@ const executeManual = async () => {
 };
 ```
 
-## Logs e Monitoramento
+## Logs and Monitoring
 
-O sistema gera logs detalhados para:
-- Início/parada do scheduler
-- Execuções bem-sucedidas e falhas
-- Conflitos entre backend e frontend
-- Estatísticas de performance
+The system generates detailed logs for:
+- Scheduler start/stop
+- Successful executions and failures
+- Conflicts between backend and frontend
+- Performance statistics
 
-## Migração Gradual
+## Gradual Migration
 
-1. **Fase 1**: Implementar backend (paralelo)
-2. **Fase 2**: Testar e ajustar configurações
-3. **Fase 3**: Ativar backend, manter frontend como fallback
-4. **Fase 4**: Opcional: desabilitar frontend
+1. **Phase 1**: Implement backend (parallel)
+2. **Phase 2**: Test and adjust configurations
+3. **Phase 3**: Activate backend, keep frontend as fallback
+4. **Phase 4**: Optional: disable frontend
 
-## Benefícios
+## Benefits
 
-- ✅ **Independência do frontend**
-- ✅ **Execução garantida**
-- ✅ **Melhor controle de erros**
-- ✅ **Logs centralizados**
-- ✅ **Configuração flexível**
-- ✅ **Redundância em caso de falhas** 
+- ✅ **Frontend independence**
+- ✅ **Guaranteed execution**
+- ✅ **Better error control**
+- ✅ **Centralized logs**
+- ✅ **Flexible configuration**
+- ✅ **Redundancy in case of failures** 

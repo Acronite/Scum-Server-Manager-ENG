@@ -1,60 +1,60 @@
-# Sistema de Controle de Veículos - SCUM Server Manager
+# Vehicle Control System - SCUM Server Manager
 
-## Visão Geral
+## Overview
 
-Este sistema monitora automaticamente os veículos registrados dos jogadores e mantém uma lista atualizada de veículos ativos por jogador. Quando um veículo é destruído, desaparece ou fica inativo, ele é automaticamente removido da lista do jogador.
+This system automatically monitors registered player vehicles and maintains an updated list of active vehicles per player. When a vehicle is destroyed, disappears, or becomes inactive, it is automatically removed from the player's list.
 
-## Funcionalidades
+## Features
 
-- ✅ **Monitoramento Automático:** Processa eventos de veículos em tempo real
-- ✅ **Embeds Individuais:** Cada jogador tem seu próprio embed no Discord
-- ✅ **Lista Numerada:** Veículos organizados em lista numerada
-- ✅ **Cores Dinâmicas:** Verde para jogadores com veículos, vermelho para sem veículos
-- ✅ **Atualização Periódica:** Verifica novos eventos a cada 5 minutos
-- ✅ **Controle de Duplicação:** Evita processar eventos duplicados
+- ✅ **Automatic Monitoring:** Processes vehicle events in real-time
+- ✅ **Individual Embeds:** Each player has their own Discord embed
+- ✅ **Numbered List:** Vehicles organized in numbered list
+- ✅ **Dynamic Colors:** Green for players with vehicles, red for without vehicles
+- ✅ **Periodic Updates:** Checks for new events every 5 minutes
+- ✅ **Duplicate Control:** Prevents processing duplicate events
 
-## Arquivos do Sistema
+## System Files
 
-### Principais
-- `src/vehicle_control.js` - Sistema principal de controle
-- `src/vehicle_control_integration.js` - Integração com servidor
-- `src/data/players/player_vehicles.json` - Dados dos jogadores e veículos
-- `src/data/vehicles/lastProcessedEvent.json` - Controle de eventos processados
+### Main
+- `src/vehicle_control.js` - Main control system
+- `src/vehicle_control_integration.js` - Server integration
+- `src/data/players/player_vehicles.json` - Player and vehicle data
+- `src/data/vehicles/lastProcessedEvent.json` - Processed events control
 
-### Dados de Entrada
-- `src/data/bot/vehicle_registrations.json` - Registros de veículos
-- `src/data/vehicles/vehicles.json` - Log de eventos de veículos
-- `src/data/webhooks.json` - Configuração de webhooks
+### Input Data
+- `src/data/bot/vehicle_registrations.json` - Vehicle registrations
+- `src/data/vehicles/vehicles.json` - Vehicle event log
+- `src/data/webhooks.json` - Webhook configuration
 
-## Como Usar
+## How to Use
 
-### 1. Teste Inicial
+### 1. Initial Test
 ```bash
 node test_vehicle_control.js
 ```
 
-### 2. Integração com Servidor
+### 2. Server Integration
 ```javascript
 const VehicleControlIntegration = require('./src/vehicle_control_integration');
 
 const vehicleControl = new VehicleControlIntegration();
-vehicleControl.start(); // Inicia o monitoramento
+vehicleControl.start(); // Starts monitoring
 ```
 
-### 3. Controles Disponíveis
+### 3. Available Controls
 ```javascript
-// Forçar atualização
+// Force update
 vehicleControl.forceUpdate();
 
-// Parar sistema
+// Stop system
 vehicleControl.stop();
 
-// Verificar status
+// Check status
 const status = vehicleControl.getStatus();
 console.log(status);
 ```
 
-## Estrutura dos Dados
+## Data Structure
 
 ### player_vehicles.json
 ```json
@@ -66,7 +66,7 @@ console.log(status);
     "activeVehicles": [
       {
         "vehicleId": "11001",
-        "vehicleType": "QUAD MONTADO",
+        "vehicleType": "QUAD MOUNTED",
         "status": "active"
       }
     ],
@@ -75,96 +75,96 @@ console.log(status);
 }
 ```
 
-## Embeds do Discord
+## Discord Embeds
 
-### Jogador com Veículos
+### Player with Vehicles
 ```
-🚗 Veículos de Pedreiro
-Status atual dos seus veículos registrados
+🚗 Pedreiro's Vehicles
+Current status of your registered vehicles
 
-📊 Resumo
-Total de Veículos: 3
-Última Atualização: 2025-08-02T20:15:30.000Z
+📊 Summary
+Total Vehicles: 3
+Last Update: 2025-08-02T20:15:30.000Z
 
-🚙 Veículos Ativos
-1. 11001 - QUAD MONTADO
-2. 11003 - BICLETA DE MONTANHA
-3. 11004 - BICICLETA DO ZE
-```
-
-### Jogador sem Veículos
-```
-🚗 Veículos de Aqu1n0
-Status atual dos seus veículos registrados
-
-📊 Resumo
-Total de Veículos: 0
-Última Atualização: 2025-08-02T20:15:30.000Z
-
-🚙 Veículos Ativos
-Todos os veículos foram perdidos
+🚙 Active Vehicles
+1. 11001 - QUAD MOUNTED
+2. 11003 - MOUNTAIN BIKE
+3. 11004 - ZE'S BICYCLE
 ```
 
-## Eventos Processados
+### Player without Vehicles
+```
+🚗 Aqu1n0's Vehicles
+Current status of your registered vehicles
 
-O sistema monitora e processa os seguintes eventos:
-- `Destroyed` - Veículo destruído
-- `Disappeared` - Veículo desaparecido
-- `VehicleInactiveTimerReached` - Timer de inatividade atingido
+📊 Summary
+Total Vehicles: 0
+Last Update: 2025-08-02T20:15:30.000Z
 
-## Configuração
+🚙 Active Vehicles
+All vehicles have been lost
+```
+
+## Processed Events
+
+The system monitors and processes the following events:
+- `Destroyed` - Vehicle destroyed
+- `Disappeared` - Vehicle disappeared
+- `VehicleInactiveTimerReached` - Inactivity timer reached
+
+## Configuration
 
 ### Webhook
-O webhook `player-vehicles` deve ser configurado em `src/data/webhooks.json`:
+The `player-vehicles` webhook must be configured in `src/data/webhooks.json`:
 ```json
 {
   "player-vehicles": "https://discord.com/api/webhooks/..."
 }
 ```
 
-### Intervalo de Verificação
-Por padrão, o sistema verifica novos eventos a cada 5 minutos. Para alterar, modifique o valor em `src/vehicle_control_integration.js`:
+### Check Interval
+By default, the system checks for new events every 5 minutes. To change, modify the value in `src/vehicle_control_integration.js`:
 ```javascript
 setInterval(() => {
     // ...
-}, 5 * 60 * 1000); // 5 minutos
+}, 5 * 60 * 1000); // 5 minutes
 ```
 
 ## Logs
 
-O sistema gera logs detalhados:
-- Inicialização com registros atuais
-- Processamento de eventos
-- Remoção de veículos
-- Atualização de embeds
-- Erros e exceções
+The system generates detailed logs:
+- Initialization with current records
+- Event processing
+- Vehicle removal
+- Embed updates
+- Errors and exceptions
 
-## Manutenção
+## Maintenance
 
-### Reinicialização
-Para reinicializar o sistema com os registros atuais:
+### Reinitialization
+To reinitialize the system with current records:
 ```javascript
 vehicleControl.vehicleControl.initializeFromRegistrations();
 ```
 
 ### Backup
-Os arquivos importantes para backup:
+Important files for backup:
 - `src/data/players/player_vehicles.json`
 - `src/data/vehicles/lastProcessedEvent.json`
 
 ## Troubleshooting
 
-### Problema: Embeds não aparecem
-- Verificar se o webhook está configurado corretamente
-- Verificar permissões do webhook no Discord
-- Verificar logs de erro
+### Problem: Embeds don't appear
+- Check if webhook is configured correctly
+- Check webhook permissions on Discord
+- Check error logs
 
-### Problema: Veículos não são removidos
-- Verificar se os eventos estão sendo processados
-- Verificar se o `lastProcessedEvent.json` está sendo atualizado
-- Verificar logs de processamento
+### Problem: Vehicles not being removed
+- Check if events are being processed
+- Check if `lastProcessedEvent.json` is being updated
+- Check processing logs
 
-### Problema: Sistema não inicia
-- Verificar se todos os arquivos JSON existem
-- Verificar permissões de leitura/escrita
-- Verificar dependências (axios) 
+### Problem: System doesn't start
+- Check if all JSON files exist
+- Check read/write permissions
+- Check dependencies (axios) 

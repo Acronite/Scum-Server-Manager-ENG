@@ -1,72 +1,72 @@
-# 🚗 Novos Comandos de Veículos - Sistema Simplificado
+# 🚗 New Vehicle Commands - Simplified System
 
-## ✅ **IMPLEMENTAÇÃO CONCLUÍDA**
+## ✅ **IMPLEMENTATION COMPLETED**
 
-### 🔄 **Mudanças Implementadas:**
+### 🔄 **Implemented Changes:**
 
-#### **1. Comandos Simplificados:**
-- **Antes:** `/rv 3911111 quad`
-- **Agora:** `/rv 3911111`
+#### **1. Simplified Commands:**
+- **Before:** `/rv 3911111 quad`
+- **Now:** `/rv 3911111`
 
-- **Antes:** `/rm 3911111 helicoptero`
-- **Agora:** `/rm 3911111`
+- **Before:** `/rm 3911111 helicopter`
+- **Now:** `/rm 3911111`
 
-- **Antes:** `/mc 3911111`
-- **Agora:** `/mc 3911111` (mantido igual)
+- **Before:** `/mc 3911111`
+- **Now:** `/mc 3911111` (kept the same)
 
-- **Antes:** `/dv 3911111 {A1}`
-- **Agora:** `/dv 3911111 {A1}` (mantido igual)
+- **Before:** `/dv 3911111 {A1}`
+- **Now:** `/dv 3911111 {A1}` (kept the same)
 
-#### **2. Consulta Automática ao Banco:**
-- ✅ **Copia banco** para pasta temporária
-- ✅ **Consulta ID** no banco SCUM.db
-- ✅ **Extrai nome** do veículo automaticamente
-- ✅ **Vincular imagem** da pasta de imagens
-- ✅ **Deleta banco** temporário após consulta
+#### **2. Automatic Database Query:**
+- ✅ **Copies database** to temporary folder
+- ✅ **Queries ID** in SCUM.db database
+- ✅ **Extracts name** of vehicle automatically
+- ✅ **Links image** from images folder
+- ✅ **Deletes temporary** database after query
 
-#### **3. Embeds com Imagens:**
-- ✅ **Nome real** do veículo extraído do banco
-- ✅ **Imagem vinculada** baseada no nome
-- ✅ **Thumbnail** no embed do Discord
-- ✅ **Dados completos** do veículo
+#### **3. Embeds with Images:**
+- ✅ **Real name** of vehicle extracted from database
+- ✅ **Linked image** based on name
+- ✅ **Thumbnail** in Discord embed
+- ✅ **Complete vehicle** data
 
 ---
 
-## 📁 **Estrutura de Arquivos:**
+## 📁 **File Structure:**
 
-### **Scripts Criados:**
-- `vehicle_database_query.js` - Consulta ao banco
-- `test_new_commands.js` - Teste dos novos comandos
+### **Created Scripts:**
+- `vehicle_database_query.js` - Database query
+- `test_new_commands.js` - New commands test
 
-### **Pastas Criadas:**
+### **Created Folders:**
 ```
 src/data/
-├── vehicles/          # Banco temporário
+├── vehicles/          # Temporary database
 ├── imagens/
-│   └── carros/       # Imagens dos veículos
+│   └── carros/       # Vehicle images
 └── ...
 ```
 
 ---
 
-## 🎯 **Como Funciona:**
+## 🎯 **How It Works:**
 
-### **Fluxo do Comando `/rv 3911111`:**
+### **Flow of Command `/rv 3911111`:**
 
-1. **Jogador digita:** `/rv 3911111`
-2. **Sistema copia** banco para pasta temporária
-3. **Sistema consulta** ID 3911111 no banco
-4. **Sistema extrai:** Nome "Kinglet Mariner"
-5. **Sistema vincula:** Imagem "kinglet_mariner.png"
-6. **Sistema deleta** banco temporário
-7. **Sistema cria** embed com imagem
-8. **Sistema envia** para Discord
+1. **Player types:** `/rv 3911111`
+2. **System copies** database to temporary folder
+3. **System queries** ID 3911111 in database
+4. **System extracts:** Name "Kinglet Mariner"
+5. **System links:** Image "kinglet_mariner.png"
+6. **System deletes** temporary database
+7. **System creates** embed with image
+8. **System sends** to Discord
 
 ---
 
-## 🖼️ **Sistema de Imagens:**
+## 🖼️ **Image System:**
 
-### **Mapeamento de Nomes:**
+### **Name Mapping:**
 ```javascript
 const imageMapping = {
     'kinglet_mariner': 'kinglet_mariner.png',
@@ -80,7 +80,7 @@ const imageMapping = {
 };
 ```
 
-### **Imagens Disponíveis:**
+### **Available Images:**
 - ✅ `kinglet_mariner.png`
 - ✅ `dirtbike_es.png`
 - ✅ `kinglet_duster_es.png`
@@ -91,71 +91,71 @@ const imageMapping = {
 
 ---
 
-## 🧪 **Testes Realizados:**
+## 🧪 **Tests Performed:**
 
-### **Teste 1: Comando Válido**
-- ✅ **Entrada:** `/rv 3911111`
-- ✅ **Resultado:** Nome "Kinglet Mariner" extraído
-- ✅ **Imagem:** "kinglet_mariner.png" vinculada
-- ✅ **Embed:** Criado com thumbnail
+### **Test 1: Valid Command**
+- ✅ **Input:** `/rv 3911111`
+- ✅ **Result:** Name "Kinglet Mariner" extracted
+- ✅ **Image:** "kinglet_mariner.png" linked
+- ✅ **Embed:** Created with thumbnail
 
-### **Teste 2: Comando Inválido**
-- ✅ **Entrada:** `/rv 999999`
-- ✅ **Resultado:** Erro - veículo não encontrado
-- ✅ **Embed:** Erro enviado corretamente
-
----
-
-## 📊 **Exemplo de Embed Gerado:**
-
-```
-🎮 Registro de Veículo
-✅ Novo Veículo Registrado
-
-📋 Nome do Veículo: Kinglet Mariner
-🆔 ID do Veículo: 3911111
-👤 Registrado por: @usuario
-📅 Data/Hora: 02/08/2025, 02:27:58
-🖼️ Imagem: kinglet_mariner.png (thumbnail)
-```
+### **Test 2: Invalid Command**
+- ✅ **Input:** `/rv 999999`
+- ✅ **Result:** Error - vehicle not found
+- ✅ **Embed:** Error sent correctly
 
 ---
 
-## 🔧 **Arquivos Modificados:**
+## 📊 **Example of Generated Embed:**
+
+```
+🎮 Vehicle Registration
+✅ New Vehicle Registered
+
+📋 Vehicle Name: Kinglet Mariner
+🆔 Vehicle ID: 3911111
+👤 Registered by: @user
+📅 Date/Time: 08/02/2025, 02:27:58
+🖼️ Image: kinglet_mariner.png (thumbnail)
+```
+
+---
+
+## 🔧 **Modified Files:**
 
 ### **src/bot.js**
-- ✅ **processChatMessage()** - Regex simplificado
-- ✅ **processVehicleCommand()** - Consulta ao banco
-- ✅ **processVehicleMountCommand()** - Consulta ao banco
-- ✅ **registerVehicle()** - Aceita vehicleInfo
-- ✅ **registerVehicleMount()** - Aceita vehicleInfo
-- ✅ **sendSuccessEmbed()** - Inclui imagem
-- ✅ **sendVehicleMountSuccessEmbed()** - Inclui imagem
+- ✅ **processChatMessage()** - Simplified regex
+- ✅ **processVehicleCommand()** - Database query
+- ✅ **processVehicleMountCommand()** - Database query
+- ✅ **registerVehicle()** - Accepts vehicleInfo
+- ✅ **registerVehicleMount()** - Accepts vehicleInfo
+- ✅ **sendSuccessEmbed()** - Includes image
+- ✅ **sendVehicleMountSuccessEmbed()** - Includes image
 
-### **Novos Arquivos**
-- ✅ **vehicle_database_query.js** - Consulta ao banco
-- ✅ **test_new_commands.js** - Script de teste
-
----
-
-## 🎉 **Benefícios:**
-
-### **Para o Usuário:**
-- ✅ **Comandos mais simples** - apenas ID
-- ✅ **Dados precisos** - nome real do veículo
-- ✅ **Embeds visuais** - com imagens
-- ✅ **Menos erros** - não precisa digitar tipo
-
-### **Para o Sistema:**
-- ✅ **Dados consistentes** - sempre do banco
-- ✅ **Automático** - sem intervenção manual
-- ✅ **Visual** - embeds com imagens
-- ✅ **Organizado** - estrutura clara
+### **New Files**
+- ✅ **vehicle_database_query.js** - Database query
+- ✅ **test_new_commands.js** - Test script
 
 ---
 
-## 🚀 **Status Final:**
+## 🎉 **Benefits:**
 
-**✅ IMPLEMENTAÇÃO CONCLUÍDA E TESTADA**
+### **For User:**
+- ✅ **Simpler commands** - just ID
+- ✅ **Accurate data** - real vehicle name
+- ✅ **Visual embeds** - with images
+- ✅ **Fewer errors** - no need to type type
 
-O sistema de comandos simplificados está **100% funcional** e pronto para uso! 🎯 
+### **For System:**
+- ✅ **Consistent data** - always from database
+- ✅ **Automatic** - no manual intervention
+- ✅ **Visual** - embeds with images
+- ✅ **Organized** - clear structure
+
+---
+
+## 🚀 **Final Status:**
+
+**✅ IMPLEMENTATION COMPLETED AND TESTED**
+
+The simplified command system is **100% functional** and ready for use! 🎯 

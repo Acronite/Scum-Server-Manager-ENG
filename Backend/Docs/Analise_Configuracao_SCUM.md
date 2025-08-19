@@ -1,203 +1,203 @@
-# Análise dos Arquivos de Configuração do Servidor SCUM
+# SCUM Server Configuration Files Analysis
 
-## Visão Geral
-Esta análise foi realizada nos arquivos localizados em `C:\Servers\scum\SCUM\Saved\Config\WindowsServer` e identifica as principais configurações e possibilidades de automação e integração com o sistema de gerenciamento.
+## Overview
+This analysis was performed on files located in `C:\Servers\scum\SCUM\Saved\Config\WindowsServer` and identifies the main configurations and possibilities for automation and integration with the management system.
 
-## Arquivos Analisados
+## Analyzed Files
 
 ### 1. ServerSettings.ini
-**Arquivo principal de configuração do servidor**
+**Main server configuration file**
 
-#### Configurações Gerais Importantes:
-- **Nome do Servidor**: "BLUE SECTOR BRASIL PVE [LOOT 3X SKILL 4X]"
-- **Descrição**: "BLUE SECTOR BRASIL PVE[LOOT 3X SKILL 4X]"
-- **Máximo de Jogadores**: 64
-- **Tipo de Servidor**: PVE
-- **Mensagem de Boas-vindas**: "Seja Bem-Vindo ao Melhor Servidor PVE discord.gg/thGphdRYJv"
-- **MOTD**: "Servidor PVE Leia as Regras discord.gg/thGphdRYJv, Reset 01:00 05:00 09:00 13:00 17:00 21:00"
+#### Important General Settings:
+- **Server Name**: "BLUE SECTOR BRASIL PVE [LOOT 3X SKILL 4X]"
+- **Description**: "BLUE SECTOR BRASIL PVE[LOOT 3X SKILL 4X]"
+- **Maximum Players**: 64
+- **Server Type**: PVE
+- **Welcome Message**: "Welcome to the Best PVE Server discord.gg/thGphdRYJv"
+- **MOTD**: "PVE Server Read the Rules discord.gg/thGphdRYJv, Reset 01:00 05:00 09:00 13:00 17:00 21:00"
 
-#### Configurações de Fame Points:
-- **Multiplicador de Fame**: 2.5x
-- **Penalidade por Morte**: 10%
-- **Penalidade por Ser Morto**: 25%
-- **Recompensa por Kill**: 50%
+#### Fame Points Settings:
+- **Fame Multiplier**: 2.5x
+- **Death Penalty**: 10%
+- **Killed Penalty**: 25%
+- **Kill Reward**: 50%
 
-#### Configurações de Skills (4x):
-- Todas as skills configuradas com multiplicador 4.0x
-- **Skills Incluídas**: Archery, Aviation, Awareness, Brawling, Camouflage, Cooking, Demolition, Driving, Endurance, Engineering, Farming, Handgun, Medical, MeleeWeapons, Motorcycle, Rifles, Running, Sniping, Stealth, Survival, Thievery
+#### Skills Settings (4x):
+- All skills configured with 4.0x multiplier
+- **Included Skills**: Archery, Aviation, Awareness, Brawling, Camouflage, Cooking, Demolition, Driving, Endurance, Engineering, Farming, Handgun, Medical, MeleeWeapons, Motorcycle, Rifles, Running, Sniping, Stealth, Survival, Thievery
 
-#### Configurações de Veículos:
-- **Dreno de Combustível**: 0.8x (reduzido)
-- **Dreno de Bateria**: 0.0x (desabilitado)
-- **Dreno de Bateria por Dispositivos**: 0.8x
-- **Dreno de Bateria por Inatividade**: 0.0x (desabilitado)
-- **Carregamento por Alternador**: 1.0x
-- **Carregamento por Dínamo**: 1.0x
+#### Vehicle Settings:
+- **Fuel Drain**: 0.8x (reduced)
+- **Battery Drain**: 0.0x (disabled)
+- **Battery Drain by Devices**: 0.8x
+- **Battery Drain by Inactivity**: 0.0x (disabled)
+- **Charging by Alternator**: 1.0x
+- **Charging by Dynamo**: 1.0x
 
-#### Limites de Veículos:
-- **Kinglet Duster**: 15 máx, 20 funcional
-- **Dirtbike**: 15 máx, 25 funcional
-- **Laika**: 30 máx, 50 funcional
-- **Motorboat**: 8 máx, 12 funcional
-- **Wolfswagen**: 20 máx, 40 funcional
-- **Bicycle**: 10 máx, 0 funcional
-- **Rager**: 40 máx, 60 funcional
-- **Cruiser**: 15 máx, 25 funcional
-- **Ris**: 15 máx, 25 funcional
-- **Kinglet Mariner**: 10 máx, 15 funcional
-- **Tractor**: 15 máx, 25 funcional
+#### Vehicle Limits:
+- **Kinglet Duster**: 15 max, 20 functional
+- **Dirtbike**: 15 max, 25 functional
+- **Laika**: 30 max, 50 functional
+- **Motorboat**: 8 max, 12 functional
+- **Wolfswagen**: 20 max, 40 functional
+- **Bicycle**: 10 max, 0 functional
+- **Rager**: 40 max, 60 functional
+- **Cruiser**: 15 max, 25 functional
+- **Ris**: 15 max, 25 functional
+- **Kinglet Mariner**: 10 max, 15 functional
+- **Tractor**: 15 max, 25 functional
 
-#### Configurações de Dano:
-- **Dano Humano vs Humano**: 1.0x
-- **Dano de Sentry**: 0.8x
-- **Dano de Dropship**: 0.5x
-- **Dano de Zombie**: 2.0x
-- **Dano de Item Decay**: 0.5x
-- **Dano de Food Decay**: 0.5x
+#### Damage Settings:
+- **Human vs Human Damage**: 1.0x
+- **Sentry Damage**: 0.8x
+- **Dropship Damage**: 0.5x
+- **Zombie Damage**: 2.0x
+- **Item Decay Damage**: 0.5x
+- **Food Decay Damage**: 0.5x
 
-#### Configurações de Respawn:
-- **Respawn por Setor**: 200 pontos
-- **Respawn por Shelter**: 500 pontos
-- **Respawn por Squad**: 3000 pontos
-- **Cooldown por Setor**: 30 segundos
-- **Cooldown por Shelter**: 30 segundos
-- **Cooldown por Squad**: 60 segundos
+#### Respawn Settings:
+- **Sector Respawn**: 200 points
+- **Shelter Respawn**: 500 points
+- **Squad Respawn**: 3000 points
+- **Sector Cooldown**: 30 seconds
+- **Shelter Cooldown**: 30 seconds
+- **Squad Cooldown**: 60 seconds
 
 ### 2. Game.ini
-**Configurações específicas do jogo**
+**Game-specific configurations**
 
-- **Perda de Constituição**: 0.2x (reduzida)
-- **Dreno de Stamina**: 0.1x (reduzido)
-- **Peso de Carregamento**: 5.0x (aumentado)
-- **Verificação de Spawn no Oceano**: Habilitado
-- **Feed de Kills**: Habilitado
+- **Constitution Loss**: 0.2x (reduced)
+- **Stamina Drain**: 0.1x (reduced)
+- **Carry Weight**: 5.0x (increased)
+- **Ocean Spawn Check**: Enabled
+- **Kill Feed**: Enabled
 
 ### 3. GameUserSettings.ini
-**Configurações de usuário do servidor**
+**Server user settings**
 
-#### Configurações de Tempo:
-- **Velocidade do Tempo**: 3.0x (mais rápido que ServerSettings.ini que tem 9.0x)
-- **Início do Dia**: 06:00
-- **Amanhecer**: 05:30
-- **Pôr do Sol**: 23:30
-- **Escuridão Noturna**: -0.3
+#### Time Settings:
+- **Time Speed**: 3.0x (faster than ServerSettings.ini which has 9.0x)
+- **Day Start**: 06:00
+- **Dawn**: 05:30
+- **Sunset**: 23:30
+- **Night Darkness**: -0.3
 
-#### Configurações de Clima:
-- **Frequência de Chuva**: 0.25x
-- **Duração de Chuva**: 0.20x
+#### Weather Settings:
+- **Rain Frequency**: 0.25x
+- **Rain Duration**: 0.20x
 
-#### Configurações de Cargo Drops:
-- **Cooldown Mínimo**: 720 segundos (12 minutos)
-- **Cooldown Máximo**: 720 segundos
-- **Delay de Queda**: 180 segundos
-- **Duração de Queda**: 20 segundos
-- **Tempo de Auto-destruição**: 900 segundos
+#### Cargo Drop Settings:
+- **Minimum Cooldown**: 720 seconds (12 minutes)
+- **Maximum Cooldown**: 720 seconds
+- **Drop Delay**: 180 seconds
+- **Drop Duration**: 20 seconds
+- **Auto-destruction Time**: 900 seconds
 
 ### 4. EconomyOverride.json
-**Configurações de economia personalizadas**
+**Custom economy settings**
 
-Arquivo extenso com configurações de preços para itens específicos em diferentes traders:
-- **Z_1_General**: Trader geral
-- **Z_2_Weapons**: Trader de armas
+Extensive file with price configurations for specific items in different traders:
+- **Z_1_General**: General trader
+- **Z_2_Weapons**: Weapons trader
 - **Z_3_Saloon**: Saloon
-- **Z_3_Hospital**: Hospital (inclui serviços de cirurgia plástica e upgrade BCU)
+- **Z_3_Hospital**: Hospital (includes plastic surgery services and BCU upgrade)
 
 ### 5. RaidTimes.json
-**Horários de raid configurados**
+**Configured raid schedules**
 
-- **Segunda a Quarta**: 10:00-11:30
-- **Segunda, Quarta, Sexta**: 07:12-09:01
-- **Quinta**: 21:00-23:45
-- **Fim de Semana**: 12:00-15:00
+- **Monday to Wednesday**: 10:00-11:30
+- **Monday, Wednesday, Friday**: 07:12-09:01
+- **Thursday**: 21:00-23:45
+- **Weekend**: 12:00-15:00
 
 ### 6. AdminUsers.ini
-**Lista de administradores**
+**Administrators list**
 
-Três Steam IDs configurados como administradores com permissão `[setgodmode]`:
+Three Steam IDs configured as administrators with `[setgodmode]` permission:
 - 76561198040636105
 - 76561198398160339
 - 76561197963358180
 
-### 7. Pasta Loot/
-**Configurações de loot personalizadas**
+### 7. Loot/ Folder
+**Custom loot configurations**
 
-Estrutura de pastas:
-- **Items/**: Configurações de itens
-- **Nodes/**: Configurações de nós de loot
-- **Spawners/**: Configurações de spawners
+Folder structure:
+- **Items/**: Item configurations
+- **Nodes/**: Loot node configurations
+- **Spawners/**: Spawner configurations
 
-## Possibilidades de Automação e Integração
+## Automation and Integration Possibilities
 
-### 1. **Sistema de Backup Automático**
-- Backup automático das configurações antes de alterações
-- Versionamento das configurações
-- Restauração rápida em caso de problemas
+### 1. **Automatic Backup System**
+- Automatic backup of configurations before changes
+- Configuration versioning
+- Quick restoration in case of problems
 
-### 2. **Interface Web para Configuração**
-- Interface para alterar configurações sem editar arquivos manualmente
-- Validação de configurações antes de aplicar
-- Preview das mudanças
+### 2. **Web Interface for Configuration**
+- Interface to change configurations without manually editing files
+- Configuration validation before applying
+- Change preview
 
-### 3. **Monitoramento de Performance**
-- Monitoramento de tick rate (10-40 configurado)
-- Alertas quando performance cai
-- Logs de performance
+### 3. **Performance Monitoring**
+- Tick rate monitoring (10-40 configured)
+- Alerts when performance drops
+- Performance logs
 
-### 4. **Sistema de Whitelist/Blacklist**
-- Interface para gerenciar usuários banidos
-- Sistema de whitelist para eventos
-- Integração com Discord para notificações
+### 4. **Whitelist/Blacklist System**
+- Interface to manage banned users
+- Whitelist system for events
+- Discord integration for notifications
 
-### 5. **Gerenciamento de Horários de Raid**
-- Interface para configurar horários de raid
-- Notificações automáticas no Discord
-- Integração com sistema de proteção
+### 5. **Raid Schedule Management**
+- Interface to configure raid schedules
+- Automatic Discord notifications
+- Protection system integration
 
-### 6. **Sistema de Fame Points**
-- Interface para adicionar/remover fame points
-- Logs de transações
-- Integração com sistema de recompensas
+### 6. **Fame Points System**
+- Interface to add/remove fame points
+- Transaction logs
+- Reward system integration
 
-### 7. **Monitoramento de Veículos**
-- Rastreamento de veículos no servidor
-- Alertas para veículos em zonas proibidas
-- Sistema de limpeza automática
+### 7. **Vehicle Monitoring**
+- Vehicle tracking on server
+- Alerts for vehicles in forbidden zones
+- Automatic cleanup system
 
-### 8. **Configurações de Loot**
-- Interface para configurar spawners
-- Sistema de rotação de loot
-- Monitoramento de economia
+### 8. **Loot Configurations**
+- Interface to configure spawners
+- Loot rotation system
+- Economy monitoring
 
-### 9. **Sistema de Restart Automático**
-- Restarts programados baseados nas configurações
-- Notificações antes do restart
-- Backup automático antes do restart
+### 9. **Automatic Restart System**
+- Scheduled restarts based on configurations
+- Notifications before restart
+- Automatic backup before restart
 
-### 10. **Integração com Discord**
-- Notificações de eventos importantes
-- Comandos para administradores
-- Sistema de tickets
+### 10. **Discord Integration**
+- Important event notifications
+- Commands for administrators
+- Ticket system
 
-## Recomendações
+## Recommendations
 
-### Prioridade Alta:
-1. **Sistema de Backup Automático** - Proteger configurações
-2. **Interface Web para Configuração** - Facilitar administração
-3. **Monitoramento de Performance** - Manter servidor estável
-4. **Sistema de Fame Points** - Integrar com sistema existente
+### High Priority:
+1. **Automatic Backup System** - Protect configurations
+2. **Web Interface for Configuration** - Facilitate administration
+3. **Performance Monitoring** - Keep server stable
+4. **Fame Points System** - Integrate with existing system
 
-### Prioridade Média:
-5. **Gerenciamento de Horários de Raid** - Melhorar experiência
-6. **Sistema de Whitelist/Blacklist** - Controle de acesso
-7. **Monitoramento de Veículos** - Manter ordem no servidor
+### Medium Priority:
+5. **Raid Schedule Management** - Improve experience
+6. **Whitelist/Blacklist System** - Access control
+7. **Vehicle Monitoring** - Maintain server order
 
-### Prioridade Baixa:
-8. **Configurações de Loot** - Otimizar economia
-9. **Sistema de Restart Automático** - Automação
-10. **Integração com Discord** - Comunicação
+### Low Priority:
+8. **Loot Configurations** - Optimize economy
+9. **Automatic Restart System** - Automation
+10. **Discord Integration** - Communication
 
-## Conclusão
+## Conclusion
 
-O servidor SCUM está bem configurado com multiplicadores de loot 3x e skills 4x, configurado como PVE. As configurações mostram um servidor bem estruturado com sistema de fame points, horários de raid definidos e economia personalizada.
+The SCUM server is well configured with 3x loot multipliers and 4x skills, configured as PVE. The configurations show a well-structured server with fame points system, defined raid schedules, and custom economy.
 
-O sistema de gerenciamento atual pode ser expandido significativamente para incluir automação de configurações, monitoramento avançado e integração com sistemas externos, melhorando a experiência tanto para administradores quanto para jogadores. 
+The current management system can be significantly expanded to include configuration automation, advanced monitoring, and integration with external systems, improving the experience for both administrators and players. 

@@ -1,90 +1,90 @@
-# 🔒 Segurança - Token do Discord
+# 🔒 Security - Discord Token
 
-## ⚠️ ALERTA DE SEGURANÇA
+## ⚠️ SECURITY ALERT
 
-O token do Discord foi removido do arquivo `config.json` por questões de segurança. **NUNCA** commite tokens ou senhas no repositório!
+The Discord token has been removed from the `config.json` file for security reasons. **NEVER** commit tokens or passwords to the repository!
 
-## Como Configurar o Token de Forma Segura
+## How to Configure the Token Securely
 
-### 1. Revogue o Token Atual (IMEDIATO)
-1. Acesse [Discord Developer Portal](https://discord.com/developers/applications)
-2. Selecione sua aplicação
-3. Vá em "Bot" → "Reset Token"
-4. **IMEDIATAMENTE** revogue o token antigo
+### 1. Revoke Current Token (IMMEDIATE)
+1. Access [Discord Developer Portal](https://discord.com/developers/applications)
+2. Select your application
+3. Go to "Bot" → "Reset Token"
+4. **IMMEDIATELY** revoke the old token
 
-### 2. Gere um Novo Token
-1. No Discord Developer Portal, gere um novo token
-2. Copie o novo token
+### 2. Generate New Token
+1. In Discord Developer Portal, generate a new token
+2. Copy the new token
 
-### 3. Configure o Token Localmente
-Edite o arquivo `src/data/server/config.json` e substitua `"SEU_TOKEN_AQUI"` pelo seu novo token:
+### 3. Configure Token Locally
+Edit the file `src/data/server/config.json` and replace `"YOUR_TOKEN_HERE"` with your new token:
 
 ```json
 {
   "discord_bot": {
     "enabled": true,
-    "token": "SEU_NOVO_TOKEN_AQUI",
-    // ... resto da configuração
+    "token": "YOUR_NEW_TOKEN_HERE",
+    // ... rest of configuration
   }
 }
 ```
 
-### 4. Adicione ao .gitignore
-Certifique-se de que o arquivo `config.json` está no `.gitignore`:
+### 4. Add to .gitignore
+Make sure the `config.json` file is in `.gitignore`:
 
 ```gitignore
-# Configurações com tokens
+# Configurations with tokens
 src/data/server/config.json
 ```
 
-### 5. Use Variáveis de Ambiente (Recomendado)
-Para maior segurança, use variáveis de ambiente:
+### 5. Use Environment Variables (Recommended)
+For greater security, use environment variables:
 
-1. Crie um arquivo `.env` na raiz do projeto:
+1. Create a `.env` file in the project root:
 ```env
-DISCORD_BOT_TOKEN=seu_token_aqui
+DISCORD_BOT_TOKEN=your_token_here
 ```
 
-2. Modifique o código para ler da variável de ambiente:
+2. Modify the code to read from environment variable:
 ```javascript
 const token = process.env.DISCORD_BOT_TOKEN || config.discord_bot.token;
 ```
 
-## Comandos para Corrigir o Repositório
+## Commands to Fix Repository
 
 ```bash
-# 1. Remova o arquivo do histórico do Git
+# 1. Remove file from Git history
 git filter-branch --force --index-filter \
   "git rm --cached --ignore-unmatch src/data/server/config.json" \
   --prune-empty --tag-name-filter cat -- --all
 
-# 2. Force push para limpar o histórico
+# 2. Force push to clean history
 git push origin --force --all
 
-# 3. Adicione o arquivo ao .gitignore
+# 3. Add file to .gitignore
 echo "src/data/server/config.json" >> .gitignore
 
-# 4. Faça um novo commit
+# 4. Make new commit
 git add .gitignore
 git commit -m "fix: remove sensitive data and update gitignore"
 git push origin main
 ```
 
-## Verificação de Segurança
+## Security Verification
 
-Após fazer as correções, verifique se não há mais tokens expostos:
+After making corrections, verify there are no more exposed tokens:
 
 ```bash
-# Procure por padrões de token no repositório
+# Search for token patterns in repository
 grep -r "MTM5NTQ5NjY1NDE1NjU5NTQwNA" .
 grep -r "discord.*token" . --ignore-case
 ```
 
-## Próximos Passos
+## Next Steps
 
-1. ✅ Revogue o token antigo
-2. ✅ Gere novo token
-3. ✅ Configure localmente
-4. ✅ Limpe o histórico do Git
-5. ✅ Atualize .gitignore
-6. ✅ Teste a aplicação
+1. ✅ Revoke old token
+2. ✅ Generate new token
+3. ✅ Configure locally
+4. ✅ Clean Git history
+5. ✅ Update .gitignore
+6. ✅ Test application

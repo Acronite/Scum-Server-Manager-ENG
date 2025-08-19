@@ -1,102 +1,102 @@
-# Resumo da Implementação - Sistema de Controle de Veículos
+# Implementation Summary - Vehicle Control System
 
-## ✅ Implementação Concluída
+## ✅ Implementation Completed
 
-### **Sistema Criado:**
-- **Monitoramento automático** de veículos por jogador
-- **Embeds individuais** no Discord para cada jogador
-- **Lista numerada** de veículos ativos
-- **Cores dinâmicas** (verde/vermelho) baseadas no status
-- **Controle de duplicação** de eventos
-- **API REST** para gerenciamento
+### **System Created:**
+- **Automatic monitoring** of vehicles per player
+- **Individual embeds** on Discord for each player
+- **Numbered list** of active vehicles
+- **Dynamic colors** (green/red) based on status
+- **Duplicate event control**
+- **REST API** for management
 
-### **Arquivos Criados:**
+### **Files Created:**
 
-#### **Sistema Principal:**
-- `src/vehicle_control.js` - Sistema principal de controle
-- `src/vehicle_control_integration.js` - Integração com servidor
-- `src/data/players/player_vehicles.json` - Dados dos jogadores
-- `src/data/vehicles/lastProcessedEvent.json` - Controle de eventos
+#### **Main System:**
+- `src/vehicle_control.js` - Main control system
+- `src/vehicle_control_integration.js` - Server integration
+- `src/data/players/player_vehicles.json` - Player data
+- `src/data/vehicles/lastProcessedEvent.json` - Event control
 
-#### **API e Rotas:**
-- `routes/vehicle-control.js` - Rotas da API
-- `test_vehicle_control.js` - Script de teste
-- `test_vehicle_control_api.js` - Teste da API
+#### **API and Routes:**
+- `routes/vehicle-control.js` - API routes
+- `test_vehicle_control.js` - Test script
+- `test_vehicle_control_api.js` - API test
 
-#### **Documentação:**
-- `README_VEHICLE_CONTROL.md` - Documentação completa
-- `RESUMO_VEHICLE_CONTROL.md` - Este resumo
+#### **Documentation:**
+- `README_VEHICLE_CONTROL.md` - Complete documentation
+- `RESUMO_VEHICLE_CONTROL.md` - This summary
 
-### **Funcionalidades Implementadas:**
+### **Implemented Features:**
 
-#### **1. Monitoramento Automático:**
-- ✅ Processa eventos de `vehicles.json`
-- ✅ Remove veículos perdidos automaticamente
-- ✅ Evita processamento duplicado
-- ✅ Atualização a cada 5 minutos
+#### **1. Automatic Monitoring:**
+- ✅ Processes events from `vehicles.json`
+- ✅ Automatically removes lost vehicles
+- ✅ Prevents duplicate processing
+- ✅ Updates every 5 minutes
 
-#### **2. Embeds do Discord:**
-- ✅ Embed individual por jogador
-- ✅ Lista numerada de veículos
-- ✅ Cores dinâmicas (verde/vermelho)
-- ✅ Timestamp de última atualização
-- ✅ Webhook configurado: `player-vehicles`
+#### **2. Discord Embeds:**
+- ✅ Individual embed per player
+- ✅ Numbered vehicle list
+- ✅ Dynamic colors (green/red)
+- ✅ Last update timestamp
+- ✅ Configured webhook: `player-vehicles`
 
-#### **3. API REST:**
-- ✅ `GET /api/vehicle-control/status` - Status do sistema
-- ✅ `GET /api/vehicle-control/players` - Listar jogadores
-- ✅ `POST /api/vehicle-control/start` - Iniciar sistema
-- ✅ `POST /api/vehicle-control/stop` - Parar sistema
-- ✅ `POST /api/vehicle-control/force-update` - Forçar atualização
-- ✅ `POST /api/vehicle-control/reinitialize` - Reinicializar
+#### **3. REST API:**
+- ✅ `GET /api/vehicle-control/status` - System status
+- ✅ `GET /api/vehicle-control/players` - List players
+- ✅ `POST /api/vehicle-control/start` - Start system
+- ✅ `POST /api/vehicle-control/stop` - Stop system
+- ✅ `POST /api/vehicle-control/force-update` - Force update
+- ✅ `POST /api/vehicle-control/reinitialize` - Reinitialize
 
-#### **4. Integração com Servidor:**
-- ✅ Inicialização automática no `server.js`
-- ✅ Logs integrados ao sistema
-- ✅ Tratamento de erros
+#### **4. Server Integration:**
+- ✅ Automatic initialization in `server.js`
+- ✅ Integrated logging system
+- ✅ Error handling
 
-### **Teste Realizado:**
+### **Test Performed:**
 
 ```
-=== TESTE DO SISTEMA DE CONTROLE DE VEÍCULOS ===
+=== VEHICLE CONTROL SYSTEM TEST ===
 
-Sistema inicializado com registros atuais
-Veículo 2320010 removido de pedreiro.
-Veículo 3912387 removido de pedreiro.
-Veículo 3912414 removido de pedreiro.
-Veículo 3912437 removido de pedreiro.
-Processados 11 eventos de veículos
+System initialized with current records
+Vehicle 2320010 removed from pedreiro.
+Vehicle 3912387 removed from pedreiro.
+Vehicle 3912414 removed from pedreiro.
+Vehicle 3912437 removed from pedreiro.
+Processed 11 vehicle events
 
-=== RESULTADO ===
-Jogadores encontrados: 4
+=== RESULT ===
+Players found: 4
 
 👤 pedreiro. (76561198040636105)
-   Veículos ativos: 21
-   1. 11001 - QUAD MONTADO
-   2. 11003 - BICLETA DE MONTANHA
+   Active vehicles: 21
+   1. 11001 - QUAD MOUNTED
+   2. 11003 - MOUNTAIN BIKE
    ...
 
 👤 tuticats (76561199617993331)
-   Veículos ativos: 1
-   1. 11006 - RANGER MONTADO
+   Active vehicles: 1
+   1. 11006 - RANGER MOUNTED
 
 👤 reaverlz (76561197963358180)
-   Veículos ativos: 1
+   Active vehicles: 1
    1. 432423 - RANGER
 
 👤 bluearcher_br (76561198398160339)
-   Veículos ativos: 1
-   1. 631424 - RANGER MONTADO
+   Active vehicles: 1
+   1. 631424 - RANGER MOUNTED
 ```
 
-### **Webhook Configurado:**
+### **Configured Webhook:**
 ```json
 {
   "player-vehicles": "https://discord.com/api/webhooks/1401300655783677952/TU9C6s13BBgU4SWb9WBfZKBeRx2MdxhLQ0WiNUO5c14PdU86iSNY1RzOCqDC0_DsJS_O"
 }
 ```
 
-### **Estrutura de Dados:**
+### **Data Structure:**
 
 #### **player_vehicles.json:**
 ```json
@@ -108,7 +108,7 @@ Jogadores encontrados: 4
     "activeVehicles": [
       {
         "vehicleId": "11001",
-        "vehicleType": "QUAD MONTADO",
+        "vehicleType": "QUAD MOUNTED",
         "status": "active"
       }
     ],
@@ -117,31 +117,31 @@ Jogadores encontrados: 4
 }
 ```
 
-### **Como Usar:**
+### **How to Use:**
 
-#### **1. Teste Inicial:**
+#### **1. Initial Test:**
 ```bash
 node test_vehicle_control.js
 ```
 
-#### **2. Teste da API:**
+#### **2. API Test:**
 ```bash
 node test_vehicle_control_api.js
 ```
 
-#### **3. Endpoints Disponíveis:**
+#### **3. Available Endpoints:**
 - `GET http://127.0.0.1:3000/api/vehicle-control/status`
 - `GET http://127.0.0.1:3000/api/vehicle-control/players`
 - `POST http://127.0.0.1:3000/api/vehicle-control/force-update`
 
-### **Próximos Passos:**
+### **Next Steps:**
 
-1. **Testar embeds no Discord** - Verificar se os embeds estão sendo enviados
-2. **Monitorar logs** - Acompanhar o funcionamento em produção
-3. **Ajustar intervalo** - Se necessário, alterar o intervalo de 5 minutos
-4. **Adicionar comandos** - Integrar comandos do bot Discord se necessário
+1. **Test Discord embeds** - Verify if embeds are being sent
+2. **Monitor logs** - Track operation in production
+3. **Adjust interval** - If necessary, change the 5-minute interval
+4. **Add commands** - Integrate Discord bot commands if necessary
 
 ### **Status:**
-🟢 **SISTEMA IMPLEMENTADO E FUNCIONANDO**
+🟢 **SYSTEM IMPLEMENTED AND WORKING**
 
-O sistema está pronto para uso e integrado ao servidor principal. Os embeds individuais serão enviados para o Discord automaticamente quando houver mudanças nos veículos dos jogadores. 
+The system is ready for use and integrated with the main server. Individual embeds will be sent to Discord automatically when there are changes in player vehicles. 

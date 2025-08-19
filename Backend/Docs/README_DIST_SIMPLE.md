@@ -1,11 +1,11 @@
-# Scum Server Manager - Distribuição Simples
+# Scum Server Manager - Simple Distribution
 
-## 🚀 Como executar:
+## 🚀 How to run:
 
 ### Windows:
-1. Clique duas vezes em `start.bat`
-2. Aguarde a instalação das dependências
-3. O servidor iniciará automaticamente
+1. Double-click `start.bat`
+2. Wait for dependencies installation
+3. Server will start automatically
 
 ### Linux/Mac:
 ```bash
@@ -19,27 +19,27 @@ npm install
 node server.js
 ```
 
-## 📁 Arquivos de configuração:
-- `src/data/server/config.json` - Configurações do servidor
-- `src/data/webhooks.json` - Webhooks do Discord
-- `src/data/funny_statistics.json` - Estatísticas divertidas
-- `.env` - Variáveis de ambiente
+## 📁 Configuration files:
+- `src/data/server/config.json` - Server configurations
+- `src/data/webhooks.json` - Discord webhooks
+- `src/data/funny_statistics.json` - Fun statistics
+- `.env` - Environment variables
 
-## ✅ Vantagens desta distribuição:
-- ✅ Não precisa compilar
-- ✅ Funciona em qualquer sistema
-- ✅ Fácil de instalar e executar
-- ✅ Arquivos JSON separados e editáveis
-- ✅ Sem problemas de dependências
+## ✅ Advantages of this distribution:
+- ✅ No compilation needed
+- ✅ Works on any system
+- ✅ Easy to install and run
+- ✅ Separate and editable JSON files
+- ✅ No dependency issues
 
-## 🔧 Configuração:
-1. Edite `.env` com suas configurações
+## 🔧 Configuration:
+1. Edit `.env` with your configurations
 2. Configure `src/data/server/config.json`
-3. Adicione webhooks em `src/data/webhooks.json`
-4. Execute `start.bat` (Windows) ou `start.sh` (Linux/Mac)
+3. Add webhooks in `src/data/webhooks.json`
+4. Run `start.bat` (Windows) or `start.sh` (Linux/Mac)
 
-## 📡 Acesso:
+## 📡 Access:
 - API: http://localhost:3000
 - Health: http://localhost:3000/health
-- Estatísticas: http://localhost:3000/funny-stats
-- Jogadores: http://localhost:3000/players
+- Statistics: http://localhost:3000/funny-stats
+- Players: http://localhost:3000/players

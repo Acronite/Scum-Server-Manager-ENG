@@ -1,28 +1,28 @@
-# Respostas para o Dev do Frontend – Integração Chat In Game
+# Responses for Frontend Dev – Chat In Game Integration
 
-## Respostas às Dúvidas
+## Responses to Questions
 
-### 1. Endpoint está disponível?
-✅ **SIM** - O endpoint `GET /api/chat_in_game` está implementado e ativo no backend.
+### 1. Is the endpoint available?
+✅ **YES** - The endpoint `GET /api/chat_in_game` is implemented and active in the backend.
 
-✅ **SIM** - Ele sempre retorna JSON, mesmo em caso de erro. Nunca retorna HTML.
+✅ **YES** - It always returns JSON, even in case of error. Never returns HTML.
 
-### 2. Resposta do endpoint
+### 2. Endpoint response
 
-#### Quando não há mensagens:
+#### When there are no messages:
 ```json
 {
   "success": false,
-  "message": "Nenhum log de chat encontrado.",
+  "message": "No chat log found.",
   "data": []
 }
 ```
 
-#### Quando há mensagens:
+#### When there are messages:
 ```json
 {
   "success": true,
-  "message": "Mensagens lidas com sucesso.",
+  "message": "Messages read successfully.",
   "data": [
     {
       "timestamp": "2025.07.13-00.28.58",
@@ -42,20 +42,20 @@
 }
 ```
 
-#### Em caso de erro interno:
+#### In case of internal error:
 ```json
 {
   "success": false,
-  "message": "Erro ao ler log de chat.",
-  "error": "Detalhes do erro específico"
+  "message": "Error reading chat log.",
+  "error": "Specific error details"
 }
 ```
 
-### 3. Proxy/Porta
-- **Porta padrão**: 3000
-- **URL completa**: `http://localhost:3000/api/chat_in_game`
-- **CORS**: O backend tem CORS configurado para aceitar requisições do frontend
-- **Proxy**: Se usar Vite, configure no `vite.config.js`:
+### 3. Proxy/Port
+- **Default port**: 3000
+- **Complete URL**: `http://localhost:3000/api/chat_in_game`
+- **CORS**: Backend has CORS configured to accept frontend requests
+- **Proxy**: If using Vite, configure in `vite.config.js`:
   ```javascript
   export default {
     server: {
@@ -69,40 +69,40 @@
   }
   ```
 
-### 4. Caminho correto
-✅ **SIM** - O endpoint é exatamente `/api/chat_in_game`
-- Não há prefixo adicional como `/v1/`
-- URL completa: `http://localhost:3000/api/chat_in_game`
+### 4. Correct path
+✅ **YES** - The endpoint is exactly `/api/chat_in_game`
+- There is no additional prefix like `/v1/`
+- Complete URL: `http://localhost:3000/api/chat_in_game`
 
-### 5. Logs e debug
+### 5. Logs and debug
 
-#### Logs no backend quando o frontend faz requisição:
+#### Backend logs when frontend makes request:
 ```
 GET /api/chat_in_game - 200 OK
 ```
 
-#### Se o endpoint não for encontrado (404):
+#### If endpoint not found (404):
 ```json
 {
   "success": false,
-  "message": "Endpoint não encontrado"
+  "message": "Endpoint not found"
 }
 ```
 
-#### Se houver erro interno (500):
+#### If there's internal error (500):
 ```json
 {
   "success": false,
-  "message": "Erro interno do servidor",
-  "error": "Detalhes do erro"
+  "message": "Internal server error",
+  "error": "Error details"
 }
 ```
 
-### 6. Exemplo de resposta real
+### 6. Real response example
 ```json
 {
   "success": true,
-  "message": "Mensagens lidas com sucesso.",
+  "message": "Messages read successfully.",
   "data": [
     {
       "timestamp": "2025.07.13-00.28.58",
@@ -129,33 +129,33 @@ GET /api/chat_in_game - 200 OK
 }
 ```
 
-### 7. Dependências
+### 7. Dependencies
 
-#### Variáveis de ambiente necessárias:
-- `SCUM_LOG_PATH`: Caminho para os logs do SCUM (ex: `C:/SCUM/Logs/`)
+#### Required environment variables:
+- `SCUM_LOG_PATH`: Path to SCUM logs (e.g., `C:/SCUM/Logs/`)
 
-#### Configurações:
-- O backend deve estar rodando
-- Os logs de chat devem existir no caminho configurado
-- Webhook do Discord (opcional, só para envio das mensagens)
+#### Configurations:
+- Backend must be running
+- Chat logs must exist in configured path
+- Discord webhook (optional, only for sending messages)
 
-#### Autenticação:
-❌ **NÃO** - Não há autenticação necessária para este endpoint
+#### Authentication:
+❌ **NO** - No authentication required for this endpoint
 
 ## Troubleshooting
 
-### Se receber HTML ao invés de JSON:
+### If receiving HTML instead of JSON:
 
-1. **Verifique se o backend está rodando**:
+1. **Check if backend is running**:
    ```bash
    curl http://localhost:3000/api/chat_in_game
    ```
 
-2. **Verifique se a porta está correta**:
-   - Backend: porta 3000
-   - Frontend: verifique se está acessando a porta correta
+2. **Check if port is correct**:
+   - Backend: port 3000
+   - Frontend: check if accessing correct port
 
-3. **Verifique o proxy do Vite**:
+3. **Check Vite proxy**:
    ```javascript
    // vite.config.js
    export default {
@@ -170,52 +170,52 @@ GET /api/chat_in_game - 200 OK
    }
    ```
 
-4. **Teste direto no navegador**:
-   - Acesse: `http://localhost:3000/api/chat_in_game`
-   - Deve retornar JSON, não HTML
+4. **Test directly in browser**:
+   - Access: `http://localhost:3000/api/chat_in_game`
+   - Should return JSON, not HTML
 
-### Se o endpoint não for encontrado:
+### If endpoint not found:
 
-1. **Verifique se o servidor está rodando**:
+1. **Check if server is running**:
    ```bash
    npm start
-   # ou
+   # or
    node server.js
    ```
 
-2. **Verifique se a rota está registrada**:
-   - O arquivo `routes/chat.js` deve estar importado no `server.js`
+2. **Check if route is registered**:
+   - File `routes/chat.js` must be imported in `server.js`
 
-## Exemplo de implementação no frontend
+## Frontend implementation example
 
 ```javascript
-// Função para buscar mensagens do chat
+// Function to fetch chat messages
 async function fetchChatMessages() {
   try {
     const response = await fetch('/api/chat_in_game');
     const data = await response.json();
     
     if (data.success) {
-      // Processar mensagens
+      // Process messages
       data.data.forEach(message => {
         console.log(`${message.playerName}: ${message.message} (${message.chatType})`);
       });
     } else {
-      console.log('Nenhuma mensagem nova:', data.message);
+      console.log('No new messages:', data.message);
     }
   } catch (error) {
-    console.error('Erro ao buscar mensagens:', error);
+    console.error('Error fetching messages:', error);
   }
 }
 
-// Chamar a cada X segundos para atualização em tempo real
-setInterval(fetchChatMessages, 5000); // A cada 5 segundos
+// Call every X seconds for real-time updates
+setInterval(fetchChatMessages, 5000); // Every 5 seconds
 ```
 
-## Contato
+## Contact
 
-Se ainda houver problemas, verifique:
-1. Logs do console do backend
-2. Network tab do navegador
-3. Se o backend está rodando na porta correta
-4. Se as variáveis de ambiente estão configuradas 
+If there are still problems, check:
+1. Backend console logs
+2. Browser network tab
+3. If backend is running on correct port
+4. If environment variables are configured 

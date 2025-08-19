@@ -1,43 +1,43 @@
-# Log Veículos
+# Vehicle Logs
 
-## Descrição
-Endpoint para processar logs de destruição e eventos de veículos do SCUM. O sistema lê o log mais recente de veículos, extrai informações sobre destruição, desaparecimento e inatividade de veículos, e retorna os dados estruturados. Agora conta com histórico, controle de duplicatas e endpoints de consulta.
+## Description
+Endpoint for processing SCUM vehicle destruction and event logs. The system reads the most recent vehicle log, extracts information about destruction, disappearance, and vehicle inactivity, and returns structured data. Now includes history, duplicate control, and query endpoints.
 
 ---
 
-## Controle de Duplicatas
-- O sistema mantém o último timestamp processado em `src/data/vehicles/lastVehicleRead.json`.
-- Só eventos com timestamp maior que o último processado são salvos e retornados.
-- Isso evita duplicidade no histórico e no envio de webhooks.
+## Duplicate Control
+- The system maintains the last processed timestamp in `src/data/vehicles/lastVehicleRead.json`.
+- Only events with timestamp greater than the last processed are saved and returned.
+- This prevents duplication in history and webhook sending.
 
-## Banco de Histórico
-- Todos os eventos processados são salvos em `src/data/vehicles/vehicles.json`.
-- Permite consultas, estatísticas e histórico completo dos eventos de veículos.
+## History Database
+- All processed events are saved in `src/data/vehicles/vehicles.json`.
+- Allows queries, statistics, and complete history of vehicle events.
 
 ---
 
 ## Endpoints
 
-### 1. Processar Log de Veículos
+### 1. Process Vehicle Log
 **GET** `/api/LogVeiculos`
 
-Lê o log de veículos mais recente, extrai informações novas e retorna dados estruturados.
+Reads the most recent vehicle log, extracts new information, and returns structured data.
 
-#### Funcionamento
-1. Encontra o arquivo de log de veículos mais recente (`vehicle_destruction_*.log`)
-2. Copia o arquivo para pasta temporária
-3. Lê o conteúdo em UTF-16LE (fallback UTF-8)
-4. Extrai apenas eventos novos (controle por timestamp)
-5. Salva no histórico (`vehicles.json`)
-6. Atualiza o controle de duplicatas (`lastVehicleRead.json`)
-7. Remove arquivo temporário
-8. Retorna dados estruturados em JSON
+#### Operation
+1. Finds the most recent vehicle log file (`vehicle_destruction_*.log`)
+2. Copies the file to temporary folder
+3. Reads content in UTF-16LE (fallback UTF-8)
+4. Extracts only new events (timestamp control)
+5. Saves to history (`vehicles.json`)
+6. Updates duplicate control (`lastVehicleRead.json`)
+7. Removes temporary file
+8. Returns structured data in JSON
 
-#### Exemplo de Response (Sucesso)
+#### Success Response Example
 ```json
 {
     "success": true,
-    "message": "Log de veículos processado com sucesso. 3 novos eventos encontrados.",
+    "message": "Vehicle log processed successfully. 3 new events found.",
     "data": [
         {
             "timestamp": "2025.07.13-04.01.37",
@@ -58,27 +58,27 @@ Lê o log de veículos mais recente, extrai informações novas e retorna dados 
 }
 ```
 
-#### Exemplo de Response (Sem eventos novos)
+#### No New Events Response Example
 ```json
 {
     "success": true,
-    "message": "Log de veículos processado com sucesso. 0 novos eventos encontrados.",
+    "message": "Vehicle log processed successfully. 0 new events found.",
     "data": []
 }
 ```
 
 ---
 
-### 2. Histórico Completo
+### 2. Complete History
 **GET** `/api/vehicles/history`
 
-Retorna todos os eventos já processados e salvos no banco de dados.
+Returns all already processed and saved events in the database.
 
-#### Exemplo de Response
+#### Response Example
 ```json
 {
     "success": true,
-    "message": "Histórico de veículos recuperado com sucesso",
+    "message": "Vehicle history retrieved successfully",
     "data": [
         {
             "timestamp": "2025.07.13-04.01.37",
@@ -91,16 +91,16 @@ Retorna todos os eventos já processados e salvos no banco de dados.
 
 ---
 
-### 3. Veículos por Proprietário
+### 3. Vehicles by Owner
 **GET** `/api/vehicles/owner/:steamId`
 
-Retorna todos os eventos de veículos de um proprietário específico.
+Returns all vehicle events from a specific owner.
 
-#### Exemplo de Response
+#### Response Example
 ```json
 {
     "success": true,
-    "message": "Veículos do proprietário 76561198140545020 recuperados com sucesso",
+    "message": "Vehicles from owner 76561198140545020 retrieved successfully",
     "data": [
         {
             "timestamp": "2025.07.13-04.01.37",
@@ -113,16 +113,16 @@ Retorna todos os eventos de veículos de um proprietário específico.
 
 ---
 
-### 4. Estatísticas de Veículos
+### 4. Vehicle Statistics
 **GET** `/api/vehicles/stats`
 
-Retorna estatísticas agregadas dos eventos de veículos.
+Returns aggregated statistics of vehicle events.
 
-#### Exemplo de Response
+#### Response Example
 ```json
 {
     "success": true,
-    "message": "Estatísticas de veículos recuperadas com sucesso",
+    "message": "Vehicle statistics retrieved successfully",
     "data": {
         "totalEvents": 3,
         "eventsByType": {
@@ -144,31 +144,31 @@ Retorna estatísticas agregadas dos eventos de veículos.
 
 ---
 
-### 5. Enviar Histórico para Discord
+### 5. Send History to Discord
 **POST** `/api/vehicles/send-history`
 
-Envia o histórico completo de veículos para o Discord via webhook com formatação bonita.
+Sends complete vehicle history to Discord via webhook with beautiful formatting.
 
-#### Parâmetros (opcional)
+#### Parameters (optional)
 ```json
 {
     "limit": 10
 }
 ```
 
-#### Funcionamento
-1. Lê todo o histórico de veículos
-2. Cria embed do Discord com:
-   - Estatísticas por tipo de evento
-   - Top proprietários
-   - Últimos eventos (limitados pelo parâmetro)
-3. Envia para o webhook configurado
+#### Operation
+1. Reads entire vehicle history
+2. Creates Discord embed with:
+   - Statistics by event type
+   - Top owners
+   - Latest events (limited by parameter)
+3. Sends to configured webhook
 
-#### Exemplo de Response (Sucesso)
+#### Success Response Example
 ```json
 {
     "success": true,
-    "message": "Histórico de 4 veículos enviado para o Discord com sucesso",
+    "message": "History of 4 vehicles sent to Discord successfully",
     "data": {
         "totalEvents": 4,
         "sentToDiscord": true
@@ -176,11 +176,11 @@ Envia o histórico completo de veículos para o Discord via webhook com formata�
 }
 ```
 
-#### Exemplo de Response (Webhook não configurado)
+#### Webhook Not Configured Response Example
 ```json
 {
     "success": false,
-    "message": "Erro ao enviar para Discord ou webhook não configurado",
+    "message": "Error sending to Discord or webhook not configured",
     "data": {
         "totalEvents": 4,
         "sentToDiscord": false
@@ -190,69 +190,69 @@ Envia o histórico completo de veículos para o Discord via webhook com formata�
 
 ---
 
-## Webhook para LogVeiculos
+## Webhook for LogVeiculos
 
-- Para cadastrar um webhook para eventos de veículos:
+- To register a webhook for vehicle events:
   - **POST** `/api/webhook/LogVeiculos`
-  - Body: `{ "url": "https://discord.com/api/webhooks/SEU_WEBHOOK" }`
-- Para consultar o webhook cadastrado:
+  - Body: `{ "url": "https://discord.com/api/webhooks/YOUR_WEBHOOK" }`
+- To query the registered webhook:
   - **GET** `/api/webhook/LogVeiculos`
 
 ---
 
-## Observações
-- O endpoint só processa eventos novos, nunca repete eventos já processados.
-- O histórico é salvo em `src/data/vehicles/vehicles.json`.
-- O controle de duplicatas é feito por timestamp em `src/data/vehicles/lastVehicleRead.json`.
-- O sistema suporta codificação UTF-16LE e UTF-8.
-- Linhas de versão do jogo são ignoradas durante o processamento.
-- Coordenadas são convertidas para números de ponto flutuante.
+## Notes
+- The endpoint only processes new events, never repeats already processed events.
+- History is saved in `src/data/vehicles/vehicles.json`.
+- Duplicate control is done by timestamp in `src/data/vehicles/lastVehicleRead.json`.
+- The system supports UTF-16LE and UTF-8 encoding.
+- Game version lines are ignored during processing.
+- Coordinates are converted to floating point numbers.
 
 ---
 
-## Exemplos de Uso
+## Usage Examples
 
-### Processar log de veículos:
+### Process vehicle log:
 ```bash
 curl http://localhost:3000/api/LogVeiculos
 ```
 
-### Consultar histórico:
+### Query history:
 ```bash
 curl http://localhost:3000/api/vehicles/history
 ```
 
-### Consultar veículos por proprietário:
+### Query vehicles by owner:
 ```bash
 curl http://localhost:3000/api/vehicles/owner/76561198140545020
 ```
 
-### Consultar estatísticas:
+### Query statistics:
 ```bash
 curl http://localhost:3000/api/vehicles/stats
 ```
 
-### Enviar histórico para Discord:
+### Send history to Discord:
 ```bash
 curl -X POST http://localhost:3000/api/vehicles/send-history -H "Content-Type: application/json" -d '{"limit": 10}'
 ```
 
-### Cadastrar webhook:
+### Register webhook:
 ```bash
-curl -X POST http://localhost:3000/api/webhook/LogVeiculos -H "Content-Type: application/json" -d '{"url": "https://discord.com/api/webhooks/SEU_WEBHOOK"}'
+curl -X POST http://localhost:3000/api/webhook/LogVeiculos -H "Content-Type: application/json" -d '{"url": "https://discord.com/api/webhooks/YOUR_WEBHOOK"}'
 ```
 
-## Tipos de Eventos
+## Event Types
 
-O sistema reconhece os seguintes tipos de eventos de veículos:
+The system recognizes the following vehicle event types:
 
-- **Destroyed**: Veículo foi destruído
-- **Disappeared**: Veículo desapareceu
-- **VehicleInactiveTimerReached**: Timer de inatividade do veículo foi atingido
+- **Destroyed**: Vehicle was destroyed
+- **Disappeared**: Vehicle disappeared
+- **VehicleInactiveTimerReached**: Vehicle inactivity timer was reached
 
-## Estrutura do Log de Veículos
+## Vehicle Log Structure
 
-O sistema espera logs no formato:
+The system expects logs in the format:
 ```
 2025.07.13-04.01.15: Game version: 1.0.1.2.96201
 2025.07.13-04.01.37: [VehicleInactiveTimerReached] Tractor_ES. VehicleId: 670006. Owner: 76561198140545020 (12, mariocs10). Location: X=-176305.094 Y=-702604.250 Z=1444.222
@@ -260,60 +260,60 @@ O sistema espera logs no formato:
 2025.07.13-04.58.18: [Destroyed] Kinglet_Duster_ES. VehicleId: 1600649. Owner: 76561198040636105 (1, Pedreiro). Location: X=-311773.969 Y=5480.525 Z=36099.227
 ```
 
-## Campos da Resposta
+## Response Fields
 
-### Evento de Veículo
-- **timestamp**: Data e hora do evento (formato: YYYY.MM.DD-HH.MM.SS)
-- **event**: Tipo do evento (Destroyed, Disappeared, VehicleInactiveTimerReached)
-- **vehicleType**: Tipo/modelo do veículo
-- **vehicleId**: ID único do veículo
-- **ownerSteamId**: Steam ID do proprietário do veículo
-- **ownerPlayerId**: ID do jogador no servidor
-- **ownerName**: Nome do proprietário do veículo
-- **location**: Coordenadas do veículo
-  - **x**: Coordenada X
-  - **y**: Coordenada Y
-  - **z**: Coordenada Z
+### Vehicle Event
+- **timestamp**: Event date and time (format: YYYY.MM.DD-HH.MM.SS)
+- **event**: Event type (Destroyed, Disappeared, VehicleInactiveTimerReached)
+- **vehicleType**: Vehicle type/model
+- **vehicleId**: Unique vehicle ID
+- **ownerSteamId**: Vehicle owner's Steam ID
+- **ownerPlayerId**: Player ID on server
+- **ownerName**: Vehicle owner's name
+- **location**: Vehicle coordinates
+  - **x**: X coordinate
+  - **y**: Y coordinate
+  - **z**: Z coordinate
 
-## Arquivos Utilizados
+## Files Used
 
-- **Log de veículos**: `{SCUM_LOG_PATH}/vehicle_destruction_*.log`
-- **Pasta temporária**: `src/data/temp/`
+- **Vehicle log**: `{SCUM_LOG_PATH}/vehicle_destruction_*.log`
+- **Temporary folder**: `src/data/temp/`
 
-## Códigos de Status HTTP
+## HTTP Status Codes
 
-- **200**: Sucesso
-- **500**: Erro interno do servidor
+- **200**: Success
+- **500**: Internal server error
 
-## Exemplo de Uso
+## Usage Example
 
-### Processar log de veículos:
+### Process vehicle log:
 ```bash
 curl http://localhost:3000/api/LogVeiculos
 ```
 
-### Exemplo com cURL:
+### cURL example:
 ```bash
 curl -X GET http://localhost:3000/api/LogVeiculos \
   -H "Content-Type: application/json" \
   -H "Accept: application/json"
 ```
 
-## Logs de Debug
+## Debug Logs
 
-O sistema exibe logs no console para debug:
-- Linhas que não foram reconhecidas pelo regex
-- Erros ao copiar ou ler arquivos
-- Erros de processamento
+The system displays console logs for debug:
+- Lines not recognized by regex
+- Errors copying or reading files
+- Processing errors
 
-## Dependências
+## Dependencies
 
-- **SCUM_LOG_PATH**: Variável de ambiente com o caminho dos logs do SCUM
+- **SCUM_LOG_PATH**: Environment variable with SCUM logs path
 
-## Observações
+## Notes
 
-- O endpoint processa apenas o arquivo de log mais recente
-- Arquivos temporários são automaticamente removidos após processamento
-- O sistema suporta codificação UTF-16LE e UTF-8
-- Linhas de versão do jogo são ignoradas durante o processamento
-- Coordenadas são convertidas para números de ponto flutuante 
+- The endpoint only processes the most recent log file
+- Temporary files are automatically removed after processing
+- The system supports UTF-16LE and UTF-8 encoding
+- Game version lines are ignored during processing
+- Coordinates are converted to floating point numbers 

@@ -1,17 +1,17 @@
 # Scum Server Manager 2.0
 
-Sistema completo de gerenciamento para servidores SCUM, incluindo backend e frontend.
+Complete management system for SCUM servers, including backend and frontend.
 
-## 📁 Estrutura do Projeto
+## 📁 Project Structure
 
 ```
 ScumServerManager2.0/
-├── Backend/          # API REST em Node.js
-├── Frontend/         # Interface web
-└── README.md         # Este arquivo
+├── Backend/          # REST API in Node.js
+├── Frontend/         # Web interface
+└── README.md         # This file
 ```
 
-## 🚀 Como Executar
+## 🚀 How to Run
 
 ### Backend
 ```bash
@@ -27,30 +27,30 @@ npm install
 npm start
 ```
 
-## 📋 Funcionalidades
+## 📋 Features
 
 ### Backend
-- API REST para gerenciamento do servidor SCUM
-- Sistema de autenticação
-- Webhooks para Discord
-- Gerenciamento de jogadores
-- Sistema de veículos
-- Logs e estatísticas
-- Agendamento de reinicializações
+- REST API for SCUM server management
+- Authentication system
+- Discord webhooks
+- Player management
+- Vehicle system
+- Logs and statistics
+- Restart scheduling
 
 ### Frontend
-- Interface web responsiva
-- Dashboard em tempo real
-- Gerenciamento de jogadores
-- Configurações do servidor
-- Estatísticas e logs
+- Responsive web interface
+- Real-time dashboard
+- Player management
+- Server configuration
+- Statistics and logs
 
-## 🔧 Tecnologias
+## 🔧 Technologies
 
 ### Backend
 - Node.js
 - Express.js
-- MongoDB (opcional)
+- MongoDB (optional)
 - Discord.js
 
 ### Frontend
@@ -58,14 +58,14 @@ npm start
 - Material-UI
 - Axios
 
-## 📝 Licença
+## 📝 License
 
-Este projeto é privado e proprietário.
+This project is private and proprietary.
 
-## 🤝 Contribuição
+## 🤝 Contributing
 
-Para contribuir com o projeto, entre em contato com a equipe de desenvolvimento.
+To contribute to the project, contact the development team.
 
-## 🔗 Repositório
+## 🔗 Repository
 
 [GitHub - ScumServerManager2.0](https://github.com/PauloPedreiro/ScumServerManager2.0) 

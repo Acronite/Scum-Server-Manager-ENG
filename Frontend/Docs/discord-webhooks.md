@@ -1,137 +1,137 @@
 # Discord Webhooks - SCUM Server Manager
 
-## Visão Geral
+## Overview
 
-O sistema de webhooks do Discord permite configurar notificações automáticas para diferentes eventos do servidor SCUM. Atualmente, o webhook **"Painel Players"** está integrado com a API do backend.
+The Discord webhook system allows configuring automatic notifications for different SCUM server events. Currently, the **"Player Panel"** webhook is integrated with the backend API.
 
-## Webhooks Disponíveis
+## Available Webhooks
 
-### 1. WebHook Painel Players ✅ (Integrado com API)
+### 1. Player Panel WebHook ✅ (Integrated with API)
 - **Endpoint:** `/api/webhook/painelplayers`
-- **Funcionalidade:** Notificações do painel de jogadores
-- **Status:** Integrado com backend real
-- **Salvamento:** No arquivo `src/data/webhooks.json` do backend
+- **Functionality:** Player panel notifications
+- **Status:** Integrated with real backend
+- **Storage:** In backend file `src/data/webhooks.json`
 
-### 2. WebHook Veiculos 🔄 (Simulado)
-- **Funcionalidade:** Notificações relacionadas a veículos
-- **Status:** Simulado (preparado para integração)
+### 2. Vehicles WebHook 🔄 (Simulated)
+- **Functionality:** Vehicle-related notifications
+- **Status:** Simulated (prepared for integration)
 
-### 3. WebHook Admin Log ✅ (Integrado com API)
+### 3. Admin Log WebHook ✅ (Integrated with API)
 - **Endpoint:** `/api/webhook/adminlog`
-- **Funcionalidade:** Logs administrativos
-- **Status:** Integrado com backend real
-- **Salvamento:** No arquivo `src/data/webhooks.json` do backend
+- **Functionality:** Administrative logs
+- **Status:** Integrated with real backend
+- **Storage:** In backend file `src/data/webhooks.json`
 
-### 4. Chat in Game 🔄 (Simulado)
-- **Funcionalidade:** Mensagens do chat do jogo
-- **Status:** Simulado (preparado para integração)
+### 4. Chat in Game 🔄 (Simulated)
+- **Functionality:** In-game chat messages
+- **Status:** Simulated (prepared for integration)
 
-### 5. WebHook Bunkers 🔄 (Simulado)
-- **Funcionalidade:** Eventos relacionados aos bunkers
-- **Status:** Simulado (preparado para integração)
+### 5. Bunkers WebHook 🔄 (Simulated)
+- **Functionality:** Bunker-related events
+- **Status:** Simulated (prepared for integration)
 
-### 6. WebHook Fama ✅ (Integrado com API)
+### 6. Fame WebHook ✅ (Integrated with API)
 - **Endpoint:** `/api/webhook/famepoints`
-- **Funcionalidade:** Eventos do sistema de fama
-- **Status:** Integrado com backend real
-- **Salvamento:** No arquivo `src/data/webhooks.json` do backend
+- **Functionality:** Fame system events
+- **Status:** Integrated with real backend
+- **Storage:** In backend file `src/data/webhooks.json`
 
-## Como Usar
+## How to Use
 
-### Configuração dos Webhooks
+### Webhook Configuration
 
-#### WebHook Painel Players
-1. **Acesse a seção Discord:**
-   - Clique em "DISCORD" na sidebar
-   - Localize o card "WebHook Painel Players"
+#### Player Panel WebHook
+1. **Access Discord section:**
+   - Click "DISCORD" in sidebar
+   - Locate "Player Panel WebHook" card
 
-2. **Configure o webhook:**
-   - Insira a URL do webhook do Discord
-   - Exemplo: `https://discord.com/api/webhooks/SEU_WEBHOOK_AQUI`
+2. **Configure webhook:**
+   - Enter Discord webhook URL
+   - Example: `https://discord.com/api/webhooks/YOUR_WEBHOOK_HERE`
 
-3. **Salve a configuração:**
-   - Clique em "SALVAR"
-   - O sistema enviará a URL para o backend
-   - O backend salvará em `src/data/webhooks.json`
+3. **Save configuration:**
+   - Click "SAVE"
+   - System will send URL to backend
+   - Backend will save in `src/data/webhooks.json`
 
-4. **Teste o webhook:**
-   - Clique em "TESTE"
-   - Uma mensagem de teste será enviada para o Discord
-   - Verifique se a mensagem chegou no canal
+4. **Test webhook:**
+   - Click "TEST"
+   - A test message will be sent to Discord
+   - Check if message arrived in channel
 
-#### WebHook Admin Log
-1. **Acesse a seção Discord:**
-   - Clique em "DISCORD" na sidebar
-   - Localize o card "WebHook Admin Log"
+#### Admin Log WebHook
+1. **Access Discord section:**
+   - Click "DISCORD" in sidebar
+   - Locate "Admin Log WebHook" card
 
-2. **Configure o webhook:**
-   - Insira a URL do webhook do Discord
-   - Exemplo: `https://discord.com/api/webhooks/SEU_WEBHOOK_AQUI`
+2. **Configure webhook:**
+   - Enter Discord webhook URL
+   - Example: `https://discord.com/api/webhooks/YOUR_WEBHOOK_HERE`
 
-3. **Salve a configuração:**
-   - Clique em "SALVAR"
-   - O sistema enviará a URL para o backend
-   - O backend salvará em `src/data/webhooks.json`
+3. **Save configuration:**
+   - Click "SAVE"
+   - System will send URL to backend
+   - Backend will save in `src/data/webhooks.json`
 
-4. **Teste o webhook:**
-   - Clique em "TESTE"
-   - Uma mensagem de teste será enviada para o Discord
-   - Verifique se a mensagem chegou no canal
+4. **Test webhook:**
+   - Click "TEST"
+   - A test message will be sent to Discord
+   - Check if message arrived in channel
 
-#### WebHook Bunkers
-1. **Acesse a seção Discord:**
-   - Clique em "DISCORD" na sidebar
-   - Localize o card "WebHook Bunkers"
+#### Bunkers WebHook
+1. **Access Discord section:**
+   - Click "DISCORD" in sidebar
+   - Locate "Bunkers WebHook" card
 
-2. **Configure o webhook:**
-   - Insira a URL do webhook do Discord
-   - Exemplo: `https://discord.com/api/webhooks/SEU_WEBHOOK_AQUI`
+2. **Configure webhook:**
+   - Enter Discord webhook URL
+   - Example: `https://discord.com/api/webhooks/YOUR_WEBHOOK_HERE`
 
-3. **Salve a configuração:**
-   - Clique em "SALVAR"
-   - O sistema enviará a URL para o backend
-   - O backend salvará em `src/data/webhooks.json`
+3. **Save configuration:**
+   - Click "SAVE"
+   - System will send URL to backend
+   - Backend will save in `src/data/webhooks.json`
 
-4. **Teste o webhook:**
-   - Clique em "TESTE"
-   - Uma mensagem de teste será enviada para o Discord
-   - Verifique se a mensagem chegou no canal
+4. **Test webhook:**
+   - Click "TEST"
+   - A test message will be sent to Discord
+   - Check if message arrived in channel
 
-#### WebHook Fama
-1. **Acesse a seção Discord:**
-   - Clique em "DISCORD" na sidebar
-   - Localize o card "WebHook Fama"
+#### Fame WebHook
+1. **Access Discord section:**
+   - Click "DISCORD" in sidebar
+   - Locate "Fame WebHook" card
 
-2. **Configure o webhook:**
-   - Insira a URL do webhook do Discord
-   - Exemplo: `https://discord.com/api/webhooks/SEU_WEBHOOK_AQUI`
+2. **Configure webhook:**
+   - Enter Discord webhook URL
+   - Example: `https://discord.com/api/webhooks/YOUR_WEBHOOK_HERE`
 
-3. **Salve a configuração:**
-   - Clique em "SALVAR"
-   - O sistema enviará a URL para o backend
-   - O backend salvará em `src/data/webhooks.json`
+3. **Save configuration:**
+   - Click "SAVE"
+   - System will send URL to backend
+   - Backend will save in `src/data/webhooks.json`
 
-4. **Teste o webhook:**
-   - Clique em "TESTE"
-   - Uma mensagem de teste será enviada para o Discord
-   - Verifique se a mensagem chegou no canal
+4. **Test webhook:**
+   - Click "TEST"
+   - A test message will be sent to Discord
+   - Check if message arrived in channel
 
-## Configuração do Backend
+## Backend Configuration
 
-### Variável de Ambiente (Opcional)
+### Environment Variable (Optional)
 ```env
 VITE_BACKEND_URL=http://localhost:3000
 ```
 
-### Endpoints da API
+### API Endpoints
 
-#### Painel Players
+#### Player Panel
 ```http
 POST http://localhost:3000/api/webhook/painelplayers
 Content-Type: application/json
 
 {
-  "url": "https://discord.com/api/webhooks/SEU_WEBHOOK_AQUI"
+  "url": "https://discord.com/api/webhooks/YOUR_WEBHOOK_HERE"
 }
 ```
 
@@ -141,7 +141,7 @@ POST http://localhost:3000/api/webhook/adminlog
 Content-Type: application/json
 
 {
-  "url": "https://discord.com/api/webhooks/SEU_WEBHOOK_AQUI"
+  "url": "https://discord.com/api/webhooks/YOUR_WEBHOOK_HERE"
 }
 ```
 
@@ -151,63 +151,63 @@ POST http://localhost:3000/api/webhook/bunkers
 Content-Type: application/json
 
 {
-  "url": "https://discord.com/api/webhooks/SEU_WEBHOOK_AQUI"
+  "url": "https://discord.com/api/webhooks/YOUR_WEBHOOK_HERE"
 }
 ```
 
-#### Fama
+#### Fame
 ```http
 POST http://localhost:3000/api/webhook/famepoints
 Content-Type: application/json
 
 {
-  "url": "https://discord.com/api/webhooks/SEU_WEBHOOK_AQUI"
+  "url": "https://discord.com/api/webhooks/YOUR_WEBHOOK_HERE"
 }
 ```
 
-## Estrutura de Arquivos
+## File Structure
 
 ```
 src/
 ├── components/
-│   └── DiscordWebhookCard.tsx    # Componente do card
+│   └── DiscordWebhookCard.tsx    # Card component
 ├── services/
-│   └── webhookService.ts         # Serviço de API
+│   └── webhookService.ts         # API service
 ├── config/
-│   └── api.ts                    # Configuração da API
+│   └── api.ts                    # API configuration
 └── pages/
-    └── Dashboard.tsx             # Página principal
+    └── Dashboard.tsx             # Main page
 ```
 
-## Próximos Passos
+## Next Steps
 
-Para integrar os outros webhooks com o backend:
+To integrate other webhooks with backend:
 
-1. **Criar endpoints no backend:**
+1. **Create backend endpoints:**
    - `/api/webhook/veiculos`
    - `/api/webhook/chatgame`
    - `/api/webhook/bunkers`
 
-2. **Atualizar o serviço:**
-   - Adicionar métodos no `WebhookService`
-   - Implementar chamadas reais da API
+2. **Update service:**
+   - Add methods in `WebhookService`
+   - Implement real API calls
 
-3. **Atualizar o Dashboard:**
-   - Modificar `handleSaveWebhook` e `handleTestWebhook`
-   - Remover simulações
+3. **Update Dashboard:**
+   - Modify `handleSaveWebhook` and `handleTestWebhook`
+   - Remove simulations
 
 ## Troubleshooting
 
-### Erro de Conexão
-- Verifique se o backend está rodando em `http://localhost:3000`
-- Confirme se a variável `VITE_BACKEND_URL` está configurada corretamente
+### Connection Error
+- Check if backend is running on `http://localhost:3000`
+- Confirm if `VITE_BACKEND_URL` variable is configured correctly
 
-### Erro de Webhook
-- Verifique se a URL do Discord está correta
-- Confirme se o webhook tem permissões de envio
-- Teste a URL manualmente no Postman
+### Webhook Error
+- Check if Discord URL is correct
+- Confirm if webhook has send permissions
+- Test URL manually in Postman
 
-### Mensagens de Erro
-- **"Erro ao conectar com o servidor"**: Backend offline
-- **"Erro ao testar webhook"**: URL inválida ou Discord inacessível
-- **"HTTP error! status: 404"**: Endpoint não encontrado 
+### Error Messages
+- **"Error connecting to server"**: Backend offline
+- **"Error testing webhook"**: Invalid URL or Discord inaccessible
+- **"HTTP error! status: 404"**: Endpoint not found 

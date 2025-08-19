@@ -1,108 +1,108 @@
-# 📚 Organização da Documentação
+# 📚 Documentation Organization
 
-## 📁 **Arquivos Movidos para Docs/**
+## 📁 **Files Moved to Docs/**
 
-### **📋 Documentação de Correções:**
-- ✅ `CORRECAO_STEAM_ID_EXTRACTION.md` - Correção da extração de Steam ID
-- ✅ `CORRECAO_IMAGENS_EMBEDS.md` - Correção das imagens nos embeds
-- ✅ `CORRECAO_VEHICLE_SYNC.md` - Correção da sincronização de veículos
-- ✅ `SOLUCAO_BOT_EXISTENTE.md` - Solução do bot existente
-- ✅ `SOLUCAO_BOT_EMBEDS.md` - Solução dos embeds do bot
-- ✅ `SOLUCAO_LIMPEZA_EMBEDS.md` - Solução da limpeza de embeds
+### **📋 Correction Documentation:**
+- ✅ `CORRECAO_STEAM_ID_EXTRACTION.md` - Steam ID extraction correction
+- ✅ `CORRECAO_IMAGENS_EMBEDS.md` - Embed images correction
+- ✅ `CORRECAO_VEHICLE_SYNC.md` - Vehicle synchronization correction
+- ✅ `SOLUCAO_BOT_EXISTENTE.md` - Existing bot solution
+- ✅ `SOLUCAO_BOT_EMBEDS.md` - Bot embeds solution
+- ✅ `SOLUCAO_LIMPEZA_EMBEDS.md` - Embed cleanup solution
 
-### **📊 Documentação de Implementação:**
-- ✅ `STATUS_FINAL.md` - Status final da implementação
-- ✅ `RESUMO_IMPLEMENTACAO.md` - Resumo da implementação
-- ✅ `RESUMO_VEHICLE_CONTROL.md` - Resumo do controle de veículos
-- ✅ `RESUMO_SISTEMA_AUTH.md` - Resumo do sistema de autenticação
-- ✅ `RESUMO_FINAL_BOT.md` - Resumo final do bot
+### **📊 Implementation Documentation:**
+- ✅ `STATUS_FINAL.md` - Final implementation status
+- ✅ `RESUMO_IMPLEMENTACAO.md` - Implementation summary
+- ✅ `RESUMO_VEHICLE_CONTROL.md` - Vehicle control summary
+- ✅ `RESUMO_SISTEMA_AUTH.md` - Authentication system summary
+- ✅ `RESUMO_FINAL_BOT.md` - Final bot summary
 
-### **📖 Documentação de Comandos:**
-- ✅ `README_NOVOS_COMANDOS.md` - Documentação dos novos comandos
-- ✅ `README_VEHICLE_CONTROL.md` - Documentação do controle de veículos
-- ✅ `README_GERENCIADOR_SENHAS.md` - Documentação do gerenciador de senhas
+### **📖 Commands Documentation:**
+- ✅ `README_NOVOS_COMANDOS.md` - New commands documentation
+- ✅ `README_VEHICLE_CONTROL.md` - Vehicle control documentation
+- ✅ `README_GERENCIADOR_SENHAS.md` - Password manager documentation
 
-### **🔧 Documentação de Build:**
-- ✅ `BUILD_README.md` - Documentação do build
-- ✅ `INSTRUCOES_DISTRIBUICAO.md` - Instruções de distribuição
-- ✅ `README_DIST_SIMPLE.md` - README da versão dist-simple
+### **🔧 Build Documentation:**
+- ✅ `BUILD_README.md` - Build documentation
+- ✅ `INSTRUCOES_DISTRIBUICAO.md` - Distribution instructions
+- ✅ `README_DIST_SIMPLE.md` - dist-simple version README
 
-### **🧹 Documentação de Limpeza:**
-- ✅ `LIMPEZA_ARQUIVOS_TESTE.md` - Limpeza de arquivos de teste
+### **🧹 Cleanup Documentation:**
+- ✅ `LIMPEZA_ARQUIVOS_TESTE.md` - Test files cleanup
 
-### **📋 Documentação Geral:**
-- ✅ `README.md` - README principal do projeto
+### **📋 General Documentation:**
+- ✅ `README.md` - Main project README
 
-## 📊 **Resumo da Organização:**
+## 📊 **Organization Summary:**
 
-### **Total de Arquivos Movidos:**
-- **Da raiz:** 15 arquivos
-- **Da pasta scripts:** 3 arquivos
-- **Da pasta dist-simple:** 1 arquivo (renomeado)
+### **Total Files Moved:**
+- **From root:** 15 files
+- **From scripts folder:** 3 files
+- **From dist-simple folder:** 1 file (renamed)
 
-**Total:** 19 arquivos movidos
+**Total:** 19 files moved
 
-### **Categorias Organizadas:**
-- **Correções:** 6 arquivos
-- **Implementação:** 5 arquivos
-- **Comandos:** 3 arquivos
-- **Build:** 3 arquivos
-- **Limpeza:** 1 arquivo
-- **Geral:** 1 arquivo
+### **Organized Categories:**
+- **Corrections:** 6 files
+- **Implementation:** 5 files
+- **Commands:** 3 files
+- **Build:** 3 files
+- **Cleanup:** 1 file
+- **General:** 1 file
 
-## 🎯 **Benefícios da Organização:**
+## 🎯 **Organization Benefits:**
 
-1. **Centralização:** Toda documentação em um local
-2. **Facilidade:** Fácil localização de informações
-3. **Organização:** Documentação categorizada
-4. **Manutenção:** Estrutura clara e organizada
-5. **Acesso:** Informações acessíveis e organizadas
+1. **Centralization:** All documentation in one location
+2. **Ease:** Easy location of information
+3. **Organization:** Categorized documentation
+4. **Maintenance:** Clear and organized structure
+5. **Access:** Accessible and organized information
 
-## 📁 **Estrutura Final:**
+## 📁 **Final Structure:**
 
 ```
 Backend/
 ├── Docs/
-│   ├── Endpoints/           # Documentação de endpoints
-│   ├── CORRECAO_*.md        # Documentação de correções
-│   ├── RESUMO_*.md          # Resumos de implementação
-│   ├── README_*.md          # Documentação de funcionalidades
-│   ├── SOLUCAO_*.md         # Soluções de problemas
+│   ├── Endpoints/           # Endpoint documentation
+│   ├── CORRECAO_*.md        # Correction documentation
+│   ├── RESUMO_*.md          # Implementation summaries
+│   ├── README_*.md          # Feature documentation
+│   ├── SOLUCAO_*.md         # Problem solutions
 │   └── ...
-├── src/                     # Código fonte
-├── scripts/                 # Scripts funcionais
-├── routes/                  # Rotas da API
+├── src/                     # Source code
+├── scripts/                 # Functional scripts
+├── routes/                  # API routes
 └── ...
 ```
 
-## 📋 **Arquivos Mantidos na Raiz:**
+## 📋 **Files Kept in Root:**
 
-### **Arquivos Essenciais:**
-- ✅ `server.js` - Servidor principal
-- ✅ `package.json` - Dependências
-- ✅ `env.example` - Exemplo de configuração
-- ✅ `nodemon.json` - Configuração do nodemon
+### **Essential Files:**
+- ✅ `server.js` - Main server
+- ✅ `package.json` - Dependencies
+- ✅ `env.example` - Configuration example
+- ✅ `nodemon.json` - Nodemon configuration
 
-### **Scripts de Manutenção:**
-- ✅ `clean_squad_data.js` - Limpeza de dados
-- ✅ `reset_all_squad_embeds.js` - Reset de embeds
-- ✅ `force_initialize_*.js` - Inicializações forçadas
-- ✅ `monitor_restart.js` - Monitoramento
+### **Maintenance Scripts:**
+- ✅ `clean_squad_data.js` - Data cleanup
+- ✅ `reset_all_squad_embeds.js` - Embeds reset
+- ✅ `force_initialize_*.js` - Forced initializations
+- ✅ `monitor_restart.js` - Monitoring
 
-### **Scripts de Build:**
-- ✅ `build.js` - Build principal
-- ✅ `build-simple.js` - Build simplificado
-- ✅ `build-nexe.js` - Build com nexe
-- ✅ `build-exe-simple.js` - Build executável
+### **Build Scripts:**
+- ✅ `build.js` - Main build
+- ✅ `build-simple.js` - Simplified build
+- ✅ `build-nexe.js` - Nexe build
+- ✅ `build-exe-simple.js` - Executable build
 
-### **Scripts de Distribuição:**
-- ✅ `electron-app.js` - Aplicação Electron
-- ✅ `server-no-axios.js` - Servidor sem axios
-- ✅ `alterar_senha.bat` - Alteração de senha
-- ✅ `limpar_bot.bat` - Limpeza do bot
+### **Distribution Scripts:**
+- ✅ `electron-app.js` - Electron application
+- ✅ `server-no-axios.js` - Server without axios
+- ✅ `alterar_senha.bat` - Password change
+- ✅ `limpar_bot.bat` - Bot cleanup
 
 ---
 
-**Status:** ✅ **ORGANIZAÇÃO CONCLUÍDA**
+**Status:** ✅ **ORGANIZATION COMPLETED**
 
-A documentação agora está centralizada e organizada na pasta `Docs`! 📚✨
+Documentation is now centralized and organized in the `Docs` folder! 📚✨

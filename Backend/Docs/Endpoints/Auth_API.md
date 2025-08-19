@@ -1,54 +1,54 @@
-# 🔐 API de Autenticação - SCUM Server Manager
+# 🔐 Authentication API - SCUM Server Manager
 
-## 📋 Visão Geral
+## 📋 Overview
 
-Sistema de autenticação baseado em JWT com armazenamento em JSON local. Inclui controle de sessões, logs de acesso e rate limiting.
+JWT-based authentication system with local JSON storage. Includes session control, access logs, and rate limiting.
 
-## 🗂️ Estrutura de Arquivos
+## 🗂️ File Structure
 
 ```
 src/data/auth/
-├── users.json          # Usuários cadastrados
-├── sessions.json       # Sessões ativas
-└── access_logs.json    # Logs de acesso
+├── users.json          # Registered users
+├── sessions.json       # Active sessions
+└── access_logs.json    # Access logs
 ```
 
-## 🔧 Configuração Inicial
+## 🔧 Initial Configuration
 
-### 1. **Instalar Dependências**
+### 1. **Install Dependencies**
 ```bash
 npm install bcrypt jsonwebtoken
 ```
 
-### 2. **Configurar Primeira Senha**
+### 2. **Configure First Password**
 ```bash
-# Gerar hash da senha para o usuário admin
-node scripts/generate-password.js admin minhasenha123
+# Generate password hash for admin user
+node scripts/generate-password.js admin mypassword123
 ```
 
-### 3. **Verificar .env**
+### 3. **Check .env**
 ```env
-JWT_SECRET=sua_chave_secreta_aqui
+JWT_SECRET=your_secret_key_here
 ```
 
 ## 📡 Endpoints
 
 ### **POST /api/auth/login**
-Faz login no sistema.
+Logs into the system.
 
 **Request:**
 ```json
 {
   "username": "admin",
-  "password": "minhasenha123"
+  "password": "mypassword123"
 }
 ```
 
-**Response (Sucesso):**
+**Response (Success):**
 ```json
 {
   "success": true,
-  "message": "Login realizado com sucesso",
+  "message": "Login successful",
   "data": {
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
     "user": {
@@ -60,16 +60,16 @@ Faz login no sistema.
 }
 ```
 
-**Response (Erro):**
+**Response (Error):**
 ```json
 {
   "success": false,
-  "message": "Usuário ou senha inválidos"
+  "message": "Invalid username or password"
 }
 ```
 
 ### **POST /api/auth/logout**
-Faz logout e invalida a sessão.
+Logs out and invalidates session.
 
 **Headers:**
 ```
@@ -80,12 +80,12 @@ Authorization: Bearer <token>
 ```json
 {
   "success": true,
-  "message": "Logout realizado com sucesso"
+  "message": "Logout successful"
 }
 ```
 
 ### **GET /api/auth/me**
-Retorna informações do usuário logado.
+Returns logged user information.
 
 **Headers:**
 ```
@@ -105,7 +105,7 @@ Authorization: Bearer <token>
 ```
 
 ### **GET /api/auth/logs**
-Retorna logs de acesso (apenas admin).
+Returns access logs (admin only).
 
 **Headers:**
 ```
@@ -134,7 +134,7 @@ Authorization: Bearer <token>
 ```
 
 ### **POST /api/auth/change-password**
-Altera a senha do usuário logado.
+Changes logged user password.
 
 **Headers:**
 ```
@@ -144,8 +144,8 @@ Authorization: Bearer <token>
 **Request:**
 ```json
 {
-  "currentPassword": "senha_atual",
-  "newPassword": "nova_senha"
+  "currentPassword": "current_password",
+  "newPassword": "new_password"
 }
 ```
 
@@ -153,47 +153,47 @@ Authorization: Bearer <token>
 ```json
 {
   "success": true,
-  "message": "Senha alterada com sucesso"
+  "message": "Password changed successfully"
 }
 ```
 
-## 🔒 Segurança
+## 🔒 Security
 
 ### **Rate Limiting**
-- Máximo 5 tentativas de login por IP em 15 minutos
-- Bloqueio automático após exceder limite
+- Maximum 5 login attempts per IP in 15 minutes
+- Automatic blocking after exceeding limit
 
 ### **JWT Token**
-- Expiração: 24 horas
-- Armazenado em `sessions.json`
-- Invalidado no logout
+- Expiration: 24 hours
+- Stored in `sessions.json`
+- Invalidated on logout
 
-### **Logs de Acesso**
-- Todas as tentativas de login/logout
-- Captura de IP real
-- User-Agent do navegador
-- Sucesso/falha da operação
+### **Access Logs**
+- All login/logout attempts
+- Real IP capture
+- Browser User-Agent
+- Success/failure of operation
 
-### **Hash de Senhas**
-- bcrypt com salt rounds = 10
-- Senhas nunca armazenadas em texto plano
+### **Password Hashing**
+- bcrypt with salt rounds = 10
+- Passwords never stored in plain text
 
-## 🛡️ Middleware de Proteção
+## 🛡️ Protection Middleware
 
 ### **requireAuth**
-Protege rotas que precisam de autenticação.
+Protects routes that need authentication.
 
 ```javascript
 const { requireAuth } = require('../src/middleware/auth');
 
-// Aplicar em rotas
+// Apply to routes
 app.get('/api/protected', requireAuth, (req, res) => {
-  // req.user contém dados do usuário
+  // req.user contains user data
   res.json({ user: req.user });
 });
 ```
 
-## 📊 Estrutura de Dados
+## 📊 Data Structure
 
 ### **users.json**
 ```json
@@ -202,7 +202,7 @@ app.get('/api/protected', requireAuth, (req, res) => {
     {
       "id": "1",
       "username": "admin",
-      "password": "$2b$10$hash_aqui",
+      "password": "$2b$10$hash_here",
       "role": "admin",
       "created_at": "2025-01-20T10:00:00Z",
       "last_login": "2025-01-20T15:30:00Z",
@@ -217,7 +217,7 @@ app.get('/api/protected', requireAuth, (req, res) => {
 {
   "sessions": [
     {
-      "token": "jwt_token_aqui",
+      "token": "jwt_token_here",
       "user_id": "1",
       "username": "admin",
       "created_at": "2025-01-20T15:30:00Z",
@@ -245,35 +245,35 @@ app.get('/api/protected', requireAuth, (req, res) => {
 }
 ```
 
-## 🔧 Comandos Úteis
+## 🔧 Useful Commands
 
-### **Gerar Hash de Senha**
+### **Generate Password Hash**
 ```bash
-node scripts/generate-password.js admin minhasenha123
+node scripts/generate-password.js admin mypassword123
 ```
 
-### **Verificar Logs**
+### **Check Logs**
 ```bash
-# Acessar via API
+# Access via API
 GET /api/auth/logs
 ```
 
-### **Limpar Sessões Expiradas**
+### **Clear Expired Sessions**
 ```bash
-# Reiniciar servidor (limpa automaticamente)
+# Restart server (clears automatically)
 npm restart
 ```
 
-## ⚠️ Códigos de Status
+## ⚠️ Status Codes
 
-- **200**: Sucesso
-- **400**: Dados inválidos
-- **401**: Não autenticado
-- **403**: Acesso negado (não é admin)
-- **429**: Rate limit excedido
-- **500**: Erro interno
+- **200**: Success
+- **400**: Invalid data
+- **401**: Not authenticated
+- **403**: Access denied (not admin)
+- **429**: Rate limit exceeded
+- **500**: Internal error
 
-## 🎯 Exemplos de Uso
+## 🎯 Usage Examples
 
 ### **Login via Frontend**
 ```javascript
@@ -289,7 +289,7 @@ const login = async (username, password) => {
   const data = await response.json();
   
   if (data.success) {
-    // Salvar token
+    // Save token
     localStorage.setItem('token', data.data.token);
     return data.data.user;
   } else {
@@ -298,7 +298,7 @@ const login = async (username, password) => {
 };
 ```
 
-### **Requisição Autenticada**
+### **Authenticated Request**
 ```javascript
 const fetchProtectedData = async () => {
   const token = localStorage.getItem('token');
@@ -315,21 +315,21 @@ const fetchProtectedData = async () => {
 
 ## 🔍 Troubleshooting
 
-### **Problema: Token inválido**
-- Verificar se JWT_SECRET está configurado
-- Verificar se token não expirou
-- Verificar se sessão existe no `sessions.json`
+### **Problem: Invalid token**
+- Check if JWT_SECRET is configured
+- Check if token hasn't expired
+- Check if session exists in `sessions.json`
 
-### **Problema: Rate limit**
-- Aguardar 15 minutos
-- Verificar IP de origem
-- Verificar logs em `access_logs.json`
+### **Problem: Rate limit**
+- Wait 15 minutes
+- Check source IP
+- Check logs in `access_logs.json`
 
-### **Problema: Senha não funciona**
-- Gerar novo hash com `generate-password.js`
-- Verificar se usuário existe em `users.json`
-- Verificar se `active: true`
+### **Problem: Password doesn't work**
+- Generate new hash with `generate-password.js`
+- Check if user exists in `users.json`
+- Check if `active: true`
 
 ---
 
-**🔐 Sistema de autenticação pronto para uso!** 
+**🔐 Authentication system ready for use!** 

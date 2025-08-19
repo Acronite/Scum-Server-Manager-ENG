@@ -1,108 +1,108 @@
-# 🧹 Limpeza de Arquivos de Teste
+# 🧹 Test Files Cleanup
 
-## 📋 **Arquivos Removidos:**
+## 📋 **Removed Files:**
 
-### **Arquivos de Teste na Raiz:**
-- ❌ `test_monitoring_debug.js` - Teste de monitoramento
-- ❌ `test_squad_vehicles_debug.js` - Teste de debug de squads
-- ❌ `debug_squads_structure.js` - Debug de estrutura de squads
-- ❌ `quick_fix.js` - Correção rápida temporária
-- ❌ `fix_vehicle_sync.js` - Correção de sincronização de veículos
-- ❌ `check_pedreiro_vehicles.js` - Verificação de veículos do Pedreiro
+### **Test Files in Root:**
+- ❌ `test_monitoring_debug.js` - Monitoring test
+- ❌ `test_squad_vehicles_debug.js` - Squad debug test
+- ❌ `debug_squads_structure.js` - Squad structure debug
+- ❌ `quick_fix.js` - Temporary quick fix
+- ❌ `fix_vehicle_sync.js` - Vehicle synchronization fix
+- ❌ `check_pedreiro_vehicles.js` - Pedreiro vehicles check
 
-### **Arquivos de Teste em scripts/:**
-- ❌ `test_squads_queries.js` - Teste de consultas de squads
-- ❌ `investigate_squads.js` - Investigação de squads
-- ❌ `squads_investigation_result.json` - Resultado da investigação
-- ❌ `test_dv_mc_commands.js` - Teste de comandos /dv e /mc
-- ❌ `test_message_processing.js` - Teste de processamento de mensagens
-- ❌ `test_embed_send.js` - Teste de envio de embeds
-- ❌ `test_complete_command.js` - Teste de comando completo
-- ❌ `test_new_commands.js` - Teste de novos comandos
-- ❌ `search_vehicle_id.js` - Busca de ID de veículo
-- ❌ `vehicle_id_3911111_result.json` - Resultado da busca
-- ❌ `search_id_3911111_result.json` - Resultado da busca
-- ❌ `scum_extraction_summary.txt` - Resumo da extração
-- ❌ `scum_extraction_advanced_result.json` - Resultado avançado
-- ❌ `test_db_connection.js` - Teste de conexão com banco
-- ❌ `extract_scum_data.js` - Extração de dados do SCUM
-- ❌ `extract_scum_data_advanced.js` - Extração avançada
-- ❌ `README_SCRIPTS_SCUM.md` - Documentação de scripts
+### **Test Files in scripts/:**
+- ❌ `test_squads_queries.js` - Squad queries test
+- ❌ `investigate_squads.js` - Squad investigation
+- ❌ `squads_investigation_result.json` - Investigation result
+- ❌ `test_dv_mc_commands.js` - /dv and /mc commands test
+- ❌ `test_message_processing.js` - Message processing test
+- ❌ `test_embed_send.js` - Embed sending test
+- ❌ `test_complete_command.js` - Complete command test
+- ❌ `test_new_commands.js` - New commands test
+- ❌ `search_vehicle_id.js` - Vehicle ID search
+- ❌ `vehicle_id_3911111_result.json` - Search result
+- ❌ `search_id_3911111_result.json` - Search result
+- ❌ `scum_extraction_summary.txt` - Extraction summary
+- ❌ `scum_extraction_advanced_result.json` - Advanced result
+- ❌ `test_db_connection.js` - Database connection test
+- ❌ `extract_scum_data.js` - SCUM data extraction
+- ❌ `extract_scum_data_advanced.js` - Advanced extraction
+- ❌ `README_SCRIPTS_SCUM.md` - Scripts documentation
 
-### **Arquivos Temporários em src/data/temp/:**
-- ❌ `start-server-temp.bat` - Script temporário de inicialização
-- ❌ `restart-server.ps1` - Script PowerShell de reinicialização
-- ❌ `stop-server.ps1` - Script PowerShell de parada
-- ❌ `restart-server-simple.bat` - Script simples de reinicialização
-- ❌ `restart-server-fixed.bat` - Script corrigido de reinicialização
-- ❌ `stop-server.bat` - Script de parada
-- ❌ `restart-server.bat` - Script de reinicialização
-- ❌ `stop-server-admin.bat` - Script de parada administrativa
-- ❌ `stop-server-simple.bat` - Script simples de parada
+### **Temporary Files in src/data/temp/:**
+- ❌ `start-server-temp.bat` - Temporary startup script
+- ❌ `restart-server.ps1` - PowerShell restart script
+- ❌ `stop-server.ps1` - PowerShell stop script
+- ❌ `restart-server-simple.bat` - Simple restart script
+- ❌ `restart-server-fixed.bat` - Fixed restart script
+- ❌ `stop-server.bat` - Stop script
+- ❌ `restart-server.bat` - Restart script
+- ❌ `stop-server-admin.bat` - Administrative stop script
+- ❌ `stop-server-simple.bat` - Simple stop script
 
-## 📊 **Resumo da Limpeza:**
+## 📊 **Cleanup Summary:**
 
-### **Total de Arquivos Removidos:**
-- **Arquivos JavaScript:** 18
-- **Arquivos JSON:** 3
-- **Arquivos TXT:** 1
-- **Arquivos BAT:** 8
-- **Arquivos PS1:** 2
-- **Arquivos MD:** 1
+### **Total Files Removed:**
+- **JavaScript files:** 18
+- **JSON files:** 3
+- **TXT files:** 1
+- **BAT files:** 8
+- **PS1 files:** 2
+- **MD files:** 1
 
-**Total:** 33 arquivos removidos
+**Total:** 33 files removed
 
-### **Espaço Liberado:**
-- **Arquivos pequenos:** ~50KB
-- **Arquivos grandes:** ~2.5MB (principalmente JSONs de resultado)
-- **Total estimado:** ~2.6MB
+### **Space Freed:**
+- **Small files:** ~50KB
+- **Large files:** ~2.5MB (mainly result JSONs)
+- **Total estimated:** ~2.6MB
 
-## ✅ **Arquivos Mantidos (Importantes):**
+## ✅ **Files Kept (Important):**
 
-### **Scripts Funcionais:**
-- ✅ `vehicle_database_query.js` - Consulta ao banco de dados
-- ✅ `generate-password.js` - Geração de senhas
-- ✅ `monitor_restart.js` - Monitoramento de reinicialização
+### **Functional Scripts:**
+- ✅ `vehicle_database_query.js` - Database query
+- ✅ `generate-password.js` - Password generation
+- ✅ `monitor_restart.js` - Restart monitoring
 
-### **Documentação:**
-- ✅ `STATUS_FINAL.md` - Status final da implementação
-- ✅ `RESUMO_IMPLEMENTACAO.md` - Resumo da implementação
-- ✅ `README_NOVOS_COMANDOS.md` - Documentação dos novos comandos
+### **Documentation:**
+- ✅ `STATUS_FINAL.md` - Final implementation status
+- ✅ `RESUMO_IMPLEMENTACAO.md` - Implementation summary
+- ✅ `README_NOVOS_COMANDOS.md` - New commands documentation
 
-### **Scripts de Manutenção:**
-- ✅ `clean_squad_data.js` - Limpeza de dados de squad
-- ✅ `reset_all_squad_embeds.js` - Reset de embeds de squad
-- ✅ `force_initialize_fazendinha.js` - Inicialização forçada
-- ✅ `force_initialize_squads.js` - Inicialização forçada de squads
-- ✅ `force_squad_update.js` - Atualização forçada de squads
+### **Maintenance Scripts:**
+- ✅ `clean_squad_data.js` - Squad data cleanup
+- ✅ `reset_all_squad_embeds.js` - Squad embeds reset
+- ✅ `force_initialize_fazendinha.js` - Forced initialization
+- ✅ `force_initialize_squads.js` - Forced squad initialization
+- ✅ `force_squad_update.js` - Forced squad update
 
-## 🎯 **Benefícios da Limpeza:**
+## 🎯 **Cleanup Benefits:**
 
-1. **Organização:** Código mais limpo e organizado
-2. **Performance:** Menos arquivos para processar
-3. **Manutenção:** Foco nos arquivos importantes
-4. **Espaço:** Liberação de espaço em disco
-5. **Clareza:** Estrutura mais clara do projeto
+1. **Organization:** Cleaner and more organized code
+2. **Performance:** Fewer files to process
+3. **Maintenance:** Focus on important files
+4. **Space:** Disk space freed
+5. **Clarity:** Clearer project structure
 
-## 📁 **Estrutura Final:**
+## 📁 **Final Structure:**
 
 ```
 Backend/
 ├── src/
 │   ├── data/
-│   │   ├── temp/          # Pasta limpa
+│   │   ├── temp/          # Clean folder
 │   │   └── ...
 │   └── ...
 ├── scripts/
-│   ├── vehicle_database_query.js  # ✅ Mantido
-│   ├── generate-password.js       # ✅ Mantido
-│   ├── monitor_restart.js         # ✅ Mantido
+│   ├── vehicle_database_query.js  # ✅ Kept
+│   ├── generate-password.js       # ✅ Kept
+│   ├── monitor_restart.js         # ✅ Kept
 │   └── ...
 └── ...
 ```
 
 ---
 
-**Status:** ✅ **LIMPEZA CONCLUÍDA**
+**Status:** ✅ **CLEANUP COMPLETED**
 
-O projeto agora está mais organizado e focado nos arquivos essenciais! 🧹✨
+The project is now more organized and focused on essential files! 🧹✨

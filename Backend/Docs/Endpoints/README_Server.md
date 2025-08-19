@@ -1,52 +1,52 @@
-# 🖥️ Endpoint de Gerenciamento do Servidor SCUM
+# 🖥️ SCUM Server Management Endpoint
 
-## Visão Geral
+## Overview
 
-Este endpoint permite gerenciar completamente o servidor SCUM através de uma API REST, incluindo:
+This endpoint allows complete management of the SCUM server through a REST API, including:
 
-- ✅ **Iniciar** o servidor SCUM
-- 🛑 **Parar** o servidor SCUM  
-- 🔄 **Reiniciar** o servidor SCUM
-- 📊 **Monitorar** status em tempo real
-- ⚙️ **Configurar** parâmetros do servidor
-- 📱 **Notificações** via Discord
+- ✅ **Start** the SCUM server
+- 🛑 **Stop** the SCUM server  
+- 🔄 **Restart** the SCUM server
+- 📊 **Monitor** status in real-time
+- ⚙️ **Configure** server parameters
+- 📱 **Notifications** via Discord
 
-## 🚀 Funcionalidades Principais
+## 🚀 Main Features
 
-### 1. Detecção Inteligente de Processo
-- Verifica automaticamente se `SCUMServer.exe` está rodando
-- Atualiza status a cada 30 segundos
-- Registra PID do processo para controle preciso
+### 1. Intelligent Process Detection
+- Automatically checks if `SCUMServer.exe` is running
+- Updates status every 30 seconds
+- Records process PID for precise control
 
-### 2. Geração Dinâmica de .bat
-- Cria arquivo .bat temporário com configurações atuais
-- Permite alterar parâmetros via API
-- Mantém compatibilidade com configurações existentes
+### 2. Dynamic .bat Generation
+- Creates temporary .bat file with current configurations
+- Allows changing parameters via API
+- Maintains compatibility with existing configurations
 
-### 3. Sistema de Webhooks
-- Envia notificações para Discord sobre mudanças de status
-- Configurado via `src/data/webhooks.json` com chave `serverstatus`
-- Inclui informações detalhadas sobre ações
+### 3. Webhook System
+- Sends Discord notifications about status changes
+- Configured via `src/data/webhooks.json` with `serverstatus` key
+- Includes detailed information about actions
 
-### 4. Logs e Monitoramento
-- Registra todas as ações de start/stop/restart
-- Mantém histórico de erros
-- Conta número de reinicializações
+### 4. Logs and Monitoring
+- Records all start/stop/restart actions
+- Maintains error history
+- Counts number of restarts
 
-## 📋 Endpoints Disponíveis
+## 📋 Available Endpoints
 
-| Método | Endpoint | Descrição |
-|--------|----------|-----------|
-| `GET` | `/api/server/status` | Obter status atual do servidor |
-| `POST` | `/api/server/start` | Iniciar o servidor SCUM |
-| `POST` | `/api/server/stop` | Parar o servidor SCUM |
-| `POST` | `/api/server/restart` | Reiniciar o servidor SCUM |
-| `GET` | `/api/server/config` | Obter configurações atuais |
-| `PUT` | `/api/server/config` | Atualizar configurações |
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/api/server/status` | Get current server status |
+| `POST` | `/api/server/start` | Start SCUM server |
+| `POST` | `/api/server/stop` | Stop SCUM server |
+| `POST` | `/api/server/restart` | Restart SCUM server |
+| `GET` | `/api/server/config` | Get current configurations |
+| `PUT` | `/api/server/config` | Update configurations |
 
-## ⚙️ Configurações
+## ⚙️ Configurations
 
-### Arquivo: `src/data/server/config.json`
+### File: `src/data/server/config.json`
 
 ```json
 {
@@ -64,45 +64,45 @@ Este endpoint permite gerenciar completamente o servidor SCUM através de uma AP
 }
 ```
 
-### Parâmetros Configuráveis
+### Configurable Parameters
 
-| Campo | Tipo | Descrição | Padrão |
-|-------|------|-----------|--------|
-| `serverPath` | string | Caminho para os binários do servidor | `C:\Servers\Scum\SCUM\Binaries\Win64` |
-| `steamCMDPath` | string | Caminho para o SteamCMD | `C:\Servers\steamcmd` |
-| `installPath` | string | Caminho de instalação do SCUM | `C:\Servers\Scum` |
-| `batPath` | string | Caminho para o arquivo .bat original | `C:\Servers\start-server-no-pause.bat` |
-| `port` | number | Porta do servidor (1-65535) | `8900` |
-| `maxPlayers` | number | Máximo de jogadores (1-100) | `64` |
-| `useBattleye` | boolean | Usar Battleye anti-cheat | `true` |
-| `autoRestart` | boolean | Reiniciar automaticamente | `false` |
-| `restartInterval` | number | Intervalo de reinício automático (ms) | `3600000` |
-| `logLevel` | string | Nível de log | `info` |
-| `checkInterval` | number | Intervalo de verificação de status (ms) | `30000` |
+| Field | Type | Description | Default |
+|-------|------|-------------|---------|
+| `serverPath` | string | Path to server binaries | `C:\Servers\Scum\SCUM\Binaries\Win64` |
+| `steamCMDPath` | string | Path to SteamCMD | `C:\Servers\steamcmd` |
+| `installPath` | string | SCUM installation path | `C:\Servers\Scum` |
+| `batPath` | string | Path to original .bat file | `C:\Servers\start-server-no-pause.bat` |
+| `port` | number | Server port (1-65535) | `8900` |
+| `maxPlayers` | number | Maximum players (1-100) | `64` |
+| `useBattleye` | boolean | Use Battleye anti-cheat | `true` |
+| `autoRestart` | boolean | Restart automatically | `false` |
+| `restartInterval` | number | Automatic restart interval (ms) | `3600000` |
+| `logLevel` | string | Log level | `info` |
+| `checkInterval` | number | Status check interval (ms) | `30000` |
 
-## 🔧 Como Usar
+## 🔧 How to Use
 
-### 1. Verificar Status
+### 1. Check Status
 ```bash
 curl -X GET http://localhost:3000/api/server/status
 ```
 
-### 2. Iniciar Servidor
+### 2. Start Server
 ```bash
 curl -X POST http://localhost:3000/api/server/start
 ```
 
-### 3. Parar Servidor
+### 3. Stop Server
 ```bash
 curl -X POST http://localhost:3000/api/server/stop
 ```
 
-### 4. Reiniciar Servidor
+### 4. Restart Server
 ```bash
 curl -X POST http://localhost:3000/api/server/restart
 ```
 
-### 5. Atualizar Configurações
+### 5. Update Configurations
 ```bash
 curl -X PUT http://localhost:3000/api/server/config \
   -H "Content-Type: application/json" \
@@ -113,134 +113,134 @@ curl -X PUT http://localhost:3000/api/server/config \
   }'
 ```
 
-## 📱 Notificações Discord
+## 📱 Discord Notifications
 
-O sistema envia notificações automáticas para Discord quando:
+The system sends automatic Discord notifications when:
 
-- ✅ Servidor iniciado com sucesso
-- 🛑 Servidor parado com sucesso  
-- 🔄 Servidor reiniciado com sucesso
-- ❌ Erro ao iniciar/parar/reiniciar servidor
-- ⚙️ Configurações atualizadas
+- ✅ Server started successfully
+- 🛑 Server stopped successfully  
+- 🔄 Server restarted successfully
+- ❌ Error starting/stopping/restarting server
+- ⚙️ Configurations updated
 
-### Configurar Webhooks
+### Configure Webhooks
 
-Edite o arquivo `src/data/webhooks.json`:
+Edit file `src/data/webhooks.json`:
 
 ```json
 {
-  "serverstatus": "https://discord.com/api/webhooks/SEU_WEBHOOK_URL"
+  "serverstatus": "https://discord.com/api/webhooks/YOUR_WEBHOOK_URL"
 }
 ```
 
-## 🧪 Testes
+## 🧪 Tests
 
-Execute o arquivo de teste para verificar se tudo está funcionando:
+Run the test file to verify everything is working:
 
 ```bash
 node test_server_endpoint.js
 ```
 
-Ou teste um endpoint específico:
+Or test a specific endpoint:
 
 ```bash
 node test_server_endpoint.js /status GET
 node test_server_endpoint.js /start POST
 ```
 
-## 📁 Estrutura de Arquivos
+## 📁 File Structure
 
 ```
 Backend/
 ├── routes/
-│   └── server.js              # Endpoint principal
+│   └── server.js              # Main endpoint
 ├── src/data/server/
-│   ├── config.json            # Configurações do servidor
-│   └── status.json            # Status atual do servidor
+│   ├── config.json            # Server configurations
+│   └── status.json            # Current server status
 ├── src/data/temp/
-│   ├── start-server-temp.bat  # Arquivo .bat para iniciar servidor
-│   ├── stop-server.bat        # Arquivo .bat para parar servidor
-│   └── restart-server.bat     # Arquivo .bat para reiniciar servidor
+│   ├── start-server-temp.bat  # .bat file to start server
+│   ├── stop-server.bat        # .bat file to stop server
+│   └── restart-server.bat     # .bat file to restart server
 ├── Docs/Endpoints/
-│   ├── Server.md              # Documentação completa
-│   └── README_Server.md       # Este arquivo
-├── test_server_endpoint.js    # Arquivo de teste da API
-├── test_bat_files.js          # Arquivo de teste dos .bat
-└── SOLUCAO_PERMISSOES.md     # Solução para problemas de permissões
+│   ├── Server.md              # Complete documentation
+│   └── README_Server.md       # This file
+├── test_server_endpoint.js    # API test file
+├── test_bat_files.js          # .bat files test file
+└── SOLUCAO_PERMISSOES.md     # Permission problems solution
 ```
 
-## 🔒 Segurança
+## 🔒 Security
 
-- ✅ Validação de parâmetros de entrada
-- ✅ Verificação de permissões de arquivo
-- ✅ Timeout para operações longas
-- ✅ Logs detalhados de todas as operações
-- ✅ Tratamento de erros robusto
+- ✅ Input parameter validation
+- ✅ File permission verification
+- ✅ Timeout for long operations
+- ✅ Detailed logs of all operations
+- ✅ Robust error handling
 
-## ⚠️ Notas Importantes
+## ⚠️ Important Notes
 
-1. **Permissões**: O backend precisa ter permissão para executar comandos no sistema
-2. **Caminhos**: Verifique se os caminhos no `config.json` estão corretos
-3. **Webhooks**: Configure webhooks para receber notificações
-4. **Backup**: Faça backup das configurações antes de alterar
-5. **Monitoramento**: O status é atualizado automaticamente a cada 30 segundos
+1. **Permissions**: Backend needs permission to execute system commands
+2. **Paths**: Check if paths in `config.json` are correct
+3. **Webhooks**: Configure webhooks to receive notifications
+4. **Backup**: Backup configurations before changing
+5. **Monitoring**: Status is automatically updated every 30 seconds
 
-## 🐛 Solução de Problemas
+## 🐛 Troubleshooting
 
-### Servidor não inicia
-- Verifique se os caminhos no `config.json` estão corretos
-- Confirme se o SteamCMD está instalado
-- Verifique as permissões do usuário
+### Server doesn't start
+- Check if paths in `config.json` are correct
+- Confirm SteamCMD is installed
+- Verify user permissions
 
-### Erro ao parar/reiniciar servidor
-- Execute o teste de processo: `node test_server_process.js`
-- Verifique se o processo `SCUMServer.exe` está realmente rodando
-- Confirme se o backend tem permissões para executar `taskkill`
-- Verifique os logs detalhados no console do backend
+### Error stopping/restarting server
+- Run process test: `node test_server_process.js`
+- Check if `SCUMServer.exe` process is really running
+- Confirm backend has permissions to execute `taskkill`
+- Check detailed logs in backend console
 
-### Webhooks não funcionam
-- Verifique se a URL do webhook está correta
-- Confirme se o webhook tem permissões de envio
-- Verifique os logs do console
+### Webhooks don't work
+- Check if webhook URL is correct
+- Confirm webhook has send permissions
+- Check console logs
 
-### Status incorreto
-- Aguarde 30 segundos para atualização automática
-- Execute manualmente: `GET /api/server/status`
-- Verifique se o processo `SCUMServer.exe` está rodando
+### Incorrect status
+- Wait 30 seconds for automatic update
+- Execute manually: `GET /api/server/status`
+- Check if `SCUMServer.exe` process is running
 
-### Debugging Avançado
+### Advanced Debugging
 
-#### Teste da API:
+#### API Test:
 ```bash
 node test_server_endpoint.js
 ```
 
-#### Teste dos arquivos .bat:
+#### .bat files test:
 ```bash
 node test_bat_files.js
 ```
 
-#### Teste do processo:
+#### Process test:
 ```bash
 node test_server_process.js
 ```
 
-Estes testes irão:
-- Verificar se `SCUMServer.exe` está rodando
-- Testar todos os arquivos .bat individualmente
-- Listar todos os processos relacionados ao SCUM
-- Testar comandos de parada
-- Mostrar logs detalhados de cada operação
+These tests will:
+- Check if `SCUMServer.exe` is running
+- Test all .bat files individually
+- List all SCUM-related processes
+- Test stop commands
+- Show detailed logs of each operation
 
-## 📞 Suporte
+## 📞 Support
 
-Para dúvidas ou problemas:
+For questions or problems:
 
-1. Verifique os logs do console
-2. Teste os endpoints individualmente
-3. Confirme as configurações no `config.json`
-4. Verifique as permissões do sistema
+1. Check console logs
+2. Test endpoints individually
+3. Confirm configurations in `config.json`
+4. Verify system permissions
 
 ---
 
-**Desenvolvido para SCUM Server Manager 2.0** 🎮 
+**Developed for SCUM Server Manager 2.0** 🎮 

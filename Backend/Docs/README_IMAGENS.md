@@ -1,68 +1,68 @@
-# Imagens de Apresentação do Projeto
+# Project Presentation Images
 
-Esta pasta contém as imagens de apresentação do SCUM Server Manager para o README do GitHub.
+This folder contains the SCUM Server Manager presentation images for the GitHub README.
 
-## Estrutura Sugerida
+## Suggested Structure
 
-Salve os prints da interface com os seguintes nomes:
+Save interface screenshots with the following names:
 
-### Screenshots Principais:
-- `01-dashboard.png` - Dashboard principal com estatísticas
-- `02-players.png` - Tela de jogadores online/offline
-- `03-fame-system.png` - Sistema de fama e ranking
-- `04-discord-settings.png` - Configurações do Discord
-- `05-administration.png` - Painel de administração
-- `06-vehicles.png` - Histórico de veículos
-- `07-system-settings.png` - Configurações do sistema
-- `08-server-configuration.png` - Configuração do servidor
+### Main Screenshots:
+- `01-dashboard.png` - Main dashboard with statistics
+- `02-players.png` - Online/offline players screen
+- `03-fame-system.png` - Fame and ranking system
+- `04-discord-settings.png` - Discord settings
+- `05-administration.png` - Administration panel
+- `06-vehicles.png` - Vehicle history
+- `07-system-settings.png` - System settings
+- `08-server-configuration.png` - Server configuration
 
-### Como usar no README.md:
+### How to use in README.md:
 
 ```markdown
 ## Screenshots
 
-### Dashboard Principal
+### Main Dashboard
 ![Dashboard](docs/images/01-dashboard.png)
 
-### Sistema de Players
+### Player System
 ![Players](docs/images/02-players.png)
 
-### Sistema de Fame
+### Fame System
 ![Fame System](docs/images/03-fame-system.png)
 
-### Configurações Discord
+### Discord Settings
 ![Discord Settings](docs/images/04-discord-settings.png)
 
-### Administração
+### Administration
 ![Administration](docs/images/05-administration.png)
 
-### Histórico de Veículos
+### Vehicle History
 ![Vehicles](docs/images/06-vehicles.png)
 
-### Configurações do Sistema
+### System Settings
 ![System Settings](docs/images/07-system-settings.png)
 
-### Configuração do Servidor
+### Server Configuration
 ![Server Configuration](docs/images/08-server-configuration.png)
 ```
 
-## Dicas para Screenshots:
+## Screenshot Tips:
 
-1. **Resolução**: Use resolução alta (1920x1080 ou superior)
-2. **Formato**: Salve em PNG para melhor qualidade
-3. **Tamanho**: Mantenha os arquivos abaixo de 1MB cada
-4. **Conteúdo**: Mostre dados reais quando possível
-5. **Interface**: Capture a interface completa, não apenas partes
+1. **Resolution**: Use high resolution (1920x1080 or higher)
+2. **Format**: Save in PNG for better quality
+3. **Size**: Keep files under 1MB each
+4. **Content**: Show real data when possible
+5. **Interface**: Capture complete interface, not just parts
 
-## Comandos para adicionar ao Git:
+## Commands to add to Git:
 
 ```bash
-# Adicionar as imagens
+# Add images
 git add docs/images/*.png
 
-# Fazer commit
-git commit -m "Adicionando screenshots da interface para o README"
+# Make commit
+git commit -m "Adding interface screenshots for README"
 
-# Enviar para o GitHub
+# Send to GitHub
 git push origin master
 ```

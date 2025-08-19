@@ -1,17 +1,17 @@
-# API de Configuração do Servidor SCUM
+# SCUM Server Configuration API
 
-## 📋 Visão Geral
+## 📋 Overview
 
-Este documento descreve o endpoint `/api/server/config` que permite obter e atualizar as configurações do servidor SCUM, incluindo as configurações do bot Discord.
+This document describes the `/api/server/config` endpoint that allows getting and updating SCUM server configurations, including Discord bot configurations.
 
-## 🔧 Endpoint de Configuração
+## 🔧 Configuration Endpoint
 
-### Obter Configuração Atual
+### Get Current Configuration
 **GET** `http://localhost:3000/api/server/config`
 
-Retorna todas as configurações atuais do servidor, incluindo configurações do bot Discord.
+Returns all current server configurations, including Discord bot configurations.
 
-**Resposta de Sucesso:**
+**Success Response:**
 ```json
 {
   "success": true,
@@ -87,12 +87,12 @@ Retorna todas as configurações atuais do servidor, incluindo configurações d
 }
 ```
 
-### Atualizar Configuração
+### Update Configuration
 **PUT** `http://localhost:3000/api/server/config`
 
-Atualiza as configurações do servidor.
+Updates server configurations.
 
-**Corpo da Requisição:**
+**Request Body:**
 ```json
 {
   "port": 8900,
@@ -101,13 +101,13 @@ Atualiza as configurações do servidor.
   "autoRestart": false,
   "discord_bot": {
     "enabled": true,
-    "token": "SEU_NOVO_TOKEN_AQUI",
-    "guild_id": "ID_DO_SERVIDOR_DISCORD",
+    "token": "YOUR_NEW_TOKEN_HERE",
+    "guild_id": "DISCORD_SERVER_ID",
     "webhook_key": "Chat_in_Game",
     "channels": {
-      "vehicle_registration": "ID_CANAL_VEICULOS",
-      "vehicle_mount_registration": "ID_CANAL_MONTAGEM",
-      "vehicle_denunciation": "ID_CANAL_DENUNCIAS"
+      "vehicle_registration": "VEHICLE_CHANNEL_ID",
+      "vehicle_mount_registration": "MOUNT_CHANNEL_ID",
+      "vehicle_denunciation": "DENUNCIATION_CHANNEL_ID"
     },
     "features": {
       "vehicle_registration": {
@@ -158,94 +158,94 @@ Atualiza as configurações do servidor.
 }
 ```
 
-**Resposta de Sucesso:**
+**Success Response:**
 ```json
 {
   "success": true,
-  "message": "Configurações atualizadas com sucesso",
+  "message": "Configurations updated successfully",
   "config": {
-    // ... configurações atualizadas
+    // ... updated configurations
   }
 }
 ```
 
-## 📊 Estrutura de Configuração
+## 📊 Configuration Structure
 
-### Configurações do Servidor
-| Campo | Tipo | Descrição | Padrão |
-|-------|------|-----------|--------|
-| `serverPath` | string | Caminho para os binários do servidor | `C:\Servers\Scum\SCUM\Binaries\Win64` |
-| `steamCMDPath` | string | Caminho para o SteamCMD | `C:\Servers\steamcmd` |
-| `installPath` | string | Caminho de instalação do SCUM | `C:\Servers\Scum` |
-| `batPath` | string | Caminho para o arquivo .bat original | `C:\Servers\start-server-no-pause.bat` |
-| `port` | number | Porta do servidor (1-65535) | `8900` |
-| `maxPlayers` | number | Máximo de jogadores (1-100) | `64` |
-| `useBattleye` | boolean | Usar Battleye anti-cheat | `true` |
-| `autoRestart` | boolean | Reiniciar automaticamente | `false` |
-| `restartInterval` | number | Intervalo de reinício automático (ms) | `3600000` |
-| `logLevel` | string | Nível de log | `info` |
-| `checkInterval` | number | Intervalo de verificação de status (ms) | `30000` |
+### Server Configurations
+| Field | Type | Description | Default |
+|-------|------|-------------|---------|
+| `serverPath` | string | Path to server binaries | `C:\Servers\Scum\SCUM\Binaries\Win64` |
+| `steamCMDPath` | string | Path to SteamCMD | `C:\Servers\steamcmd` |
+| `installPath` | string | SCUM installation path | `C:\Servers\Scum` |
+| `batPath` | string | Path to original .bat file | `C:\Servers\start-server-no-pause.bat` |
+| `port` | number | Server port (1-65535) | `8900` |
+| `maxPlayers` | number | Maximum players (1-100) | `64` |
+| `useBattleye` | boolean | Use Battleye anti-cheat | `true` |
+| `autoRestart` | boolean | Restart automatically | `false` |
+| `restartInterval` | number | Automatic restart interval (ms) | `3600000` |
+| `logLevel` | string | Log level | `info` |
+| `checkInterval` | number | Status check interval (ms) | `30000` |
 
-### Configurações do Bot Discord
-| Campo | Tipo | Descrição |
-|-------|------|-----------|
-| `enabled` | boolean | Habilita/desabilita o bot |
-| `token` | string | Token do bot Discord |
-| `guild_id` | string | ID do servidor Discord |
-| `webhook_key` | string | Chave do webhook para captura de mensagens |
-| `channels` | object | IDs dos canais do Discord |
-| `features` | object | Configurações dos comandos do bot |
+### Discord Bot Configurations
+| Field | Type | Description |
+|-------|------|-------------|
+| `enabled` | boolean | Enables/disables the bot |
+| `token` | string | Discord bot token |
+| `guild_id` | string | Discord server ID |
+| `webhook_key` | string | Webhook key for message capture |
+| `channels` | object | Discord channel IDs |
+| `features` | object | Bot command configurations |
 
-### Canais do Discord
-| Canal | Descrição | ID Exemplo |
-|-------|-----------|------------|
-| `vehicle_registration` | Canal para registros de veículos | `1395477789313994812` |
-| `vehicle_mount_registration` | Canal para registros de montagem | `1395634763733405756` |
-| `vehicle_denunciation` | Canal para denúncias de veículos | `1396238276808937567` |
+### Discord Channels
+| Channel | Description | Example ID |
+|---------|-------------|------------|
+| `vehicle_registration` | Channel for vehicle registrations | `1395477789313994812` |
+| `vehicle_mount_registration` | Channel for mount registrations | `1395634763733405756` |
+| `vehicle_denunciation` | Channel for vehicle denunciations | `1396238276808937567` |
 
-### Comandos do Bot
-| Comando | Prefixo | Descrição | Cooldown |
-|---------|---------|-----------|----------|
-| Registro de Veículo | `/rv` | Registra veículo no sistema | 30s |
-| Registro de Montagem | `/rm` | Registra montagem de veículo | 30s |
-| Conclusão de Montagem | `/mc` | Conclui montagem de veículo | 30s |
-| Denúncia de Veículo | `/dv` | Denuncia veículo não registrado | 60s |
+### Bot Commands
+| Command | Prefix | Description | Cooldown |
+|---------|---------|-------------|----------|
+| Vehicle Registration | `/rv` | Registers vehicle in system | 30s |
+| Mount Registration | `/rm` | Registers vehicle mount | 30s |
+| Mount Completion | `/mc` | Completes vehicle mount | 30s |
+| Vehicle Denunciation | `/dv` | Denounces unregistered vehicle | 60s |
 
-### Permissões para Denúncias
-Os seguintes cargos podem verificar denúncias:
-- `Staff` (minúsculo)
-- `STAFF` (maiúsculo)
-- `Adm` (minúsculo)
-- `ADM` (maiúsculo)
+### Permissions for Denunciations
+The following roles can verify denunciations:
+- `Staff` (lowercase)
+- `STAFF` (uppercase)
+- `Adm` (lowercase)
+- `ADM` (uppercase)
 
-## 🔄 Funcionalidades
+## 🔄 Features
 
-### Comandos de Veículos
-- **`/rv <ID> <TIPO>`** - Registra veículo
-- **`/rm <ID> <TIPO>`** - Registra montagem
-- **`/mc <ID>`** - Conclui montagem
-- **`/dv <ID> <LOCALIZAÇÃO>`** - Denuncia veículo
+### Vehicle Commands
+- **`/rv <ID> <TYPE>`** - Registers vehicle
+- **`/rm <ID> <TYPE>`** - Registers mount
+- **`/mc <ID>`** - Completes mount
+- **`/dv <ID> <LOCATION>`** - Denounces vehicle
 
-### Sistema de Denúncias
-- Verifica se veículo está registrado
-- Mostra informações do denunciante (nome, Discord)
-- Permite verificação por Staff/Adm
-- Mantém histórico de denúncias
+### Denunciation System
+- Checks if vehicle is registered
+- Shows denouncer information (name, Discord)
+- Allows verification by Staff/Adm
+- Maintains denunciation history
 
-### Vinculação de Usuários
-- Sistema de vinculação Discord ↔ Steam
-- Botões para vincular contas
-- Expiração automática de links
-- Histórico de atividades
+### User Linking
+- Discord ↔ Steam linking system
+- Buttons to link accounts
+- Automatic link expiration
+- Activity history
 
-## 📝 Exemplos de Uso
+## 📝 Usage Examples
 
-### Obter Configuração
+### Get Configuration
 ```bash
 curl -X GET http://localhost:3000/api/server/config
 ```
 
-### Atualizar Configuração
+### Update Configuration
 ```bash
 curl -X PUT http://localhost:3000/api/server/config \
   -H "Content-Type: application/json" \
@@ -261,10 +261,10 @@ curl -X PUT http://localhost:3000/api/server/config \
   }'
 ```
 
-## ⚠️ Observações
+## ⚠️ Notes
 
-1. **Token do Discord**: O token é mascarado na resposta por segurança
-2. **IDs de Canais**: Use IDs numéricos dos canais do Discord
-3. **Permissões**: Configure corretamente os cargos para denúncias
-4. **Cooldowns**: Evitam spam de comandos
+1. **Discord Token**: Token is masked in response for security
+2. **Channel IDs**: Use numeric IDs from Discord channels
+3. **Permissions**: Configure roles correctly for denunciations
+4. **Cooldowns**: Prevent command spam
 5. **Webhooks**: Configure via `src/data/webhooks.json` 

@@ -1,39 +1,39 @@
-# Sistema de Bunkers - SCUM Server Manager
+# Bunkers System - SCUM Server Manager
 
-## Visão Geral
+## Overview
 
-O sistema de bunkers foi completamente reformulado para incluir um banco de dados persistente que controla o status de todos os bunkers do servidor SCUM. O sistema agora é inteligente e mantém histórico de ativações, coordenadas e tempos de ativação.
+The bunkers system has been completely redesigned to include a persistent database that controls the status of all SCUM server bunkers. The system is now intelligent and maintains activation history, coordinates, and activation times.
 
-## Funcionalidades
+## Features
 
-### ✅ Banco de Dados Persistente
-- Armazena informações de todos os bunkers em `src/data/bunkers/bunkers.json`
-- Controle de arquivos processados em `src/data/bunkers/lastProcessed.json`
-- Evita reprocessamento desnecessário de logs
+### ✅ Persistent Database
+- Stores information of all bunkers in `src/data/bunkers/bunkers.json`
+- Control of processed files in `src/data/bunkers/lastProcessed.json`
+- Avoids unnecessary log reprocessing
 
-### ✅ Detecção Inteligente
-- Detecta bunkers ativos e bloqueados automaticamente
-- Identifica ativações via keycard
-- Mantém coordenadas quando disponíveis
-- Calcula tempos decorridos desde ativação
+### ✅ Intelligent Detection
+- Automatically detects active and locked bunkers
+- Identifies keycard activations
+- Maintains coordinates when available
+- Calculates time elapsed since activation
 
-### ✅ Formatação Detalhada
-- Informações completas de cada bunker
-- Tempo decorrido desde ativação
-- Coordenadas precisas
-- Status de atualização
+### ✅ Detailed Formatting
+- Complete information for each bunker
+- Time elapsed since activation
+- Precise coordinates
+- Update status
 
 ## Endpoints
 
 ### GET `/api/bunkers/status`
 
-**Descrição:** Obtém o status atual de todos os bunkers
+**Description:** Gets current status of all bunkers
 
-**Resposta de Sucesso:**
+**Success Response:**
 ```json
 {
   "success": true,
-  "message": "Status dos bunkers recuperado com sucesso.",
+  "message": "Bunker status retrieved successfully.",
   "data": {
     "active": [
       {
@@ -70,13 +70,13 @@ O sistema de bunkers foi completamente reformulado para incluir um banco de dado
 
 ### POST `/api/bunkers/force-update`
 
-**Descrição:** Força atualização dos bunkers sem enviar webhook
+**Description:** Forces bunker update without sending webhook
 
-**Resposta de Sucesso:**
+**Success Response:**
 ```json
 {
   "success": true,
-  "message": "Status dos bunkers atualizado (sem envio para webhook).",
+  "message": "Bunker status updated (no webhook sent).",
   "data": {
     "active": [...],
     "locked": [...],
@@ -85,39 +85,39 @@ O sistema de bunkers foi completamente reformulado para incluir um banco de dado
 }
 ```
 
-## Formato do Webhook Discord
+## Discord Webhook Format
 
-O webhook envia informações detalhadas no seguinte formato:
+The webhook sends detailed information in the following format:
 
 ```
-🏰 Status dos Bunkers - SCUM Server
+🏰 Bunker Status - SCUM Server
 
-Bunkers Ativos:
+Active Bunkers:
 A1 Bunker
-Status: Ativo
-Ativado: 00h 00m 00s atrás (02h 15m 30s decorridos)
-Coordenadas: X=-348529.312 Y=-469201.781 Z=4247.645
+Status: Active
+Activated: 00h 00m 00s ago (02h 15m 30s elapsed)
+Coordinates: X=-348529.312 Y=-469201.781 Z=4247.645
 
 A3 Bunker
-Status: Ativo
-Ativado: Via Keycard 00h 30m 15s atrás
-Coordenadas: X=230229.672 Y=-447157.625 Z=9555.422
+Status: Active
+Activated: Via Keycard 00h 30m 15s ago
+Coordinates: X=230229.672 Y=-447157.625 Z=9555.422
 
-Bunkers Bloqueados:
+Locked Bunkers:
 D1 Bunker
-Status: Bloqueado
-Próxima ativação: 21h 53m 18s (atualizado há 01h 45m 20s)
-Coordenadas: X=-537889.562 Y=540004.312 Z=81279.648
+Status: Locked
+Next activation: 21h 53m 18s (updated 01h 45m 20s ago)
+Coordinates: X=-537889.562 Y=540004.312 Z=81279.648
 
 C4 Bunker
-Status: Bloqueado
-Próxima ativação: 21h 53m 18s (atualizado há 01h 45m 20s)
-Coordenadas: X=446323.000 Y=263051.188 Z=18552.514
+Status: Locked
+Next activation: 21h 53m 18s (updated 01h 45m 20s ago)
+Coordinates: X=446323.000 Y=263051.188 Z=18552.514
 ```
 
-## Estrutura do Banco de Dados
+## Database Structure
 
-### Arquivo: `src/data/bunkers/bunkers.json`
+### File: `src/data/bunkers/bunkers.json`
 ```json
 {
   "A1": {
@@ -146,7 +146,7 @@ Coordenadas: X=446323.000 Y=263051.188 Z=18552.514
 }
 ```
 
-### Arquivo: `src/data/bunkers/lastProcessed.json`
+### File: `src/data/bunkers/lastProcessed.json`
 ```json
 {
   "fileName": "gameplay_2025.07.15.log",
@@ -155,68 +155,68 @@ Coordenadas: X=446323.000 Y=263051.188 Z=18552.514
 }
 ```
 
-## Padrões de Log Detectados
+## Detected Log Patterns
 
-### Bunkers Ativos
+### Active Bunkers
 - `A1 Bunker is Active. Activated 00h 00m 00s ago. X=-348529.312 Y=-469201.781 Z=4247.645`
 - `A3 Bunker Activated 00h 06m 41s ago`
 - `C2 Bunker Activated via Keycard 00h 30m 15s ago`
 
-### Bunkers Bloqueados
+### Locked Bunkers
 - `D1 Bunker is Locked. Locked initially, next Activation in 23h 53m 18s. X=-537889.562 Y=540004.312 Z=81279.648`
 
-## Configuração do Webhook
+## Webhook Configuration
 
-Para configurar o webhook do Discord, adicione no arquivo `src/data/webhooks.json`:
+To configure Discord webhook, add in file `src/data/webhooks.json`:
 
 ```json
 {
-  "bunkers": "https://discord.com/api/webhooks/SEU_WEBHOOK_URL"
+  "bunkers": "https://discord.com/api/webhooks/YOUR_WEBHOOK_URL"
 }
 ```
 
-## Melhorias Implementadas
+## Implemented Improvements
 
-1. **Banco de Dados Persistente**: Informações são salvas e mantidas entre reinicializações
-2. **Controle de Processamento**: Evita reprocessar logs já analisados
-3. **Detecção Inteligente**: Identifica novos bunkers automaticamente
-4. **Formatação Detalhada**: Informações completas no Discord
-5. **Cálculo de Tempo**: Mostra tempo decorrido desde ativação
-6. **Suporte a Keycard**: Detecta ativações via keycard
-7. **Coordenadas Precisas**: Mantém localização exata dos bunkers
+1. **Persistent Database**: Information is saved and maintained between restarts
+2. **Processing Control**: Avoids reprocessing already analyzed logs
+3. **Intelligent Detection**: Automatically identifies new bunkers
+4. **Detailed Formatting**: Complete information on Discord
+5. **Time Calculation**: Shows time elapsed since activation
+6. **Keycard Support**: Detects keycard activations
+7. **Precise Coordinates**: Maintains exact bunker location
 
-## Exemplo de Uso
+## Usage Example
 
 ```bash
-# Obter status atual
+# Get current status
 curl http://localhost:3000/api/bunkers/status
 
-# Forçar atualização
+# Force update
 curl -X POST http://localhost:3000/api/bunkers/force-update
 ```
 
-O sistema agora é muito mais robusto e fornece informações detalhadas sobre o status dos bunkers do servidor SCUM.
+The system is now much more robust and provides detailed information about SCUM server bunker status.
 
-## Notas Importantes
+## Important Notes
 
-1. **Arquivo de Log:** A API lê o arquivo `gameplay_*.log` mais recente
-2. **Coordenadas:** Podem ser null para bunkers ativados simples (sem coordenadas no log)
-3. **Webhook:** Só funciona se configurado em `src/data/webhooks.json`
-4. **Encoding:** Suporte nativo a UTF-16LE do SCUM
-5. **Performance:** Processamento otimizado com limpeza automática de arquivos temporários
+1. **Log File**: API reads the most recent `gameplay_*.log` file
+2. **Coordinates**: May be null for simple activated bunkers (no coordinates in log)
+3. **Webhook**: Only works if configured in `src/data/webhooks.json`
+4. **Encoding**: Native UTF-16LE SCUM support
+5. **Performance**: Optimized processing with automatic temporary file cleanup
 
 ## Troubleshooting
 
-### Problema: "Nenhum arquivo de log gameplay encontrado"
-**Solução:** Verificar se o caminho `SCUM_LOG_PATH` no `.env` está correto
+### Problem: "No gameplay log file found"
+**Solution:** Check if `SCUM_LOG_PATH` in `.env` is correct
 
-### Problema: Bunkers não aparecem na resposta
-**Solução:** Verificar se há logs de bunkers no arquivo `gameplay_*.log` mais recente
+### Problem: Bunkers don't appear in response
+**Solution:** Check if there are bunker logs in the most recent `gameplay_*.log` file
 
-### Problema: Webhook não funciona
-**Solução:** Verificar se o webhook está configurado em `src/data/webhooks.json`
+### Problem: Webhook doesn't work
+**Solution:** Check if webhook is configured in `src/data/webhooks.json`
 
 ---
 
-**Desenvolvido para SCUM Server Manager v2.0**  
-**Compatível com logs do SCUM v1.0+** 
+**Developed for SCUM Server Manager v2.0**  
+**Compatible with SCUM v1.0+ logs** 

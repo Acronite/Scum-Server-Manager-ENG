@@ -1,42 +1,42 @@
-# 🎉 Scum Server Manager - Distribuição Final
+# 🎉 Scum Server Manager - Final Distribution
 
-## ✅ **SUCESSO!** 
-A distribuição foi criada com sucesso na pasta `dist-simple/`
+## ✅ **SUCCESS!** 
+The distribution was successfully created in the `dist-simple/` folder
 
 ---
 
-## 📦 **O que foi criado:**
+## 📦 **What was created:**
 
 ```
 dist-simple/
-├── start.bat              # Executar no Windows
-├── start.sh               # Executar no Linux/Mac  
-├── server.js              # Servidor sem Axios (funciona!)
-├── package.json           # Dependências simplificadas
-├── src/data/              # Arquivos JSON editáveis
-├── .env                   # Variáveis de ambiente
-└── README.md              # Instruções detalhadas
+├── start.bat              # Run on Windows
+├── start.sh               # Run on Linux/Mac  
+├── server.js              # Server without Axios (works!)
+├── package.json           # Simplified dependencies
+├── src/data/              # Editable JSON files
+├── .env                   # Environment variables
+└── README.md              # Detailed instructions
 ```
 
 ---
 
-## 🚀 **Como distribuir:**
+## 🚀 **How to distribute:**
 
-### **1. Copie a pasta completa:**
+### **1. Copy the complete folder:**
 ```bash
-# Copie a pasta dist-simple/ para onde quiser
-# Exemplo: C:\MeusProgramas\ScumServerManager\
+# Copy the dist-simple/ folder wherever you want
+# Example: C:\MyPrograms\ScumServerManager\
 ```
 
-### **2. Execute no Windows:**
+### **2. Run on Windows:**
 ```bash
-# Clique duas vezes em start.bat
-# OU
+# Double-click start.bat
+# OR
 cd dist-simple
 start.bat
 ```
 
-### **3. Execute no Linux/Mac:**
+### **3. Run on Linux/Mac:**
 ```bash
 cd dist-simple
 chmod +x start.sh
@@ -45,67 +45,67 @@ chmod +x start.sh
 
 ---
 
-## 🔧 **Configuração:**
+## 🔧 **Configuration:**
 
-### **Arquivos que podem ser editados:**
-- `src/data/server/config.json` - Configurações do servidor
-- `src/data/webhooks.json` - Webhooks do Discord  
-- `src/data/funny_statistics.json` - Estatísticas divertidas
-- `src/data/auth/users.json` - Usuários do sistema
-- `src/data/players/players.json` - Dados dos jogadores
-- `.env` - Variáveis de ambiente
+### **Files that can be edited:**
+- `src/data/server/config.json` - Server configurations
+- `src/data/webhooks.json` - Discord webhooks  
+- `src/data/funny_statistics.json` - Fun statistics
+- `src/data/auth/users.json` - System users
+- `src/data/players/players.json` - Player data
+- `.env` - Environment variables
 
-### **Como configurar:**
-1. **Edite `.env`** com suas configurações
+### **How to configure:**
+1. **Edit `.env`** with your configurations
 2. **Configure** `src/data/server/config.json`
-3. **Adicione webhooks** em `src/data/webhooks.json`
-4. **Execute** `start.bat` (Windows) ou `start.sh` (Linux/Mac)
+3. **Add webhooks** in `src/data/webhooks.json`
+4. **Run** `start.bat` (Windows) or `start.sh` (Linux/Mac)
 
 ---
 
-## 📡 **Endpoints disponíveis:**
+## 📡 **Available endpoints:**
 
-- **API Principal:** http://localhost:3000
+- **Main API:** http://localhost:3000
 - **Health Check:** http://localhost:3000/health
-- **Estatísticas:** http://localhost:3000/funny-stats
-- **Jogadores:** http://localhost:3000/players
-- **Configurações:** http://localhost:3000/config
+- **Statistics:** http://localhost:3000/funny-stats
+- **Players:** http://localhost:3000/players
+- **Configurations:** http://localhost:3000/config
 
 ---
 
-## ✅ **Vantagens desta distribuição:**
+## ✅ **Advantages of this distribution:**
 
-- ✅ **Não precisa compilar** (sem Pkg/Nexe)
-- ✅ **Instala dependências automaticamente**
-- ✅ **Arquivos JSON separados e editáveis**
-- ✅ **Funciona em qualquer sistema**
-- ✅ **Fácil de distribuir**
-- ✅ **Sem problemas de dependências**
-- ✅ **Versão sem Axios (mais estável)**
-
----
-
-## 🎯 **Testado e funcionando:**
-
-- ✅ Servidor inicia corretamente
-- ✅ API responde normalmente
-- ✅ Endpoints funcionam
-- ✅ Arquivos JSON editáveis
-- ✅ Dependências instaladas automaticamente
+- ✅ **No compilation needed** (no Pkg/Nexe)
+- ✅ **Installs dependencies automatically**
+- ✅ **Separate and editable JSON files**
+- ✅ **Works on any system**
+- ✅ **Easy to distribute**
+- ✅ **No dependency issues**
+- ✅ **Version without Axios (more stable)**
 
 ---
 
-## 📋 **Para distribuir:**
+## 🎯 **Tested and working:**
 
-1. **Copie** a pasta `dist-simple/` completa
-2. **Execute** `start.bat` (Windows) ou `start.sh` (Linux/Mac)
-3. **Configure** os arquivos JSON conforme necessário
-4. **Acesse** http://localhost:3000
+- ✅ Server starts correctly
+- ✅ API responds normally
+- ✅ Endpoints work
+- ✅ Editable JSON files
+- ✅ Dependencies installed automatically
 
 ---
 
-## 🎉 **MISSÃO CUMPRIDA!**
+## 📋 **To distribute:**
 
-A distribuição está **100% funcional** e pronta para uso!
+1. **Copy** the complete `dist-simple/` folder
+2. **Run** `start.bat` (Windows) or `start.sh` (Linux/Mac)
+3. **Configure** JSON files as needed
+4. **Access** http://localhost:3000
 
-**Arquivo final:** `dist-simple/` - Copie e distribua!
+---
+
+## 🎉 **MISSION ACCOMPLISHED!**
+
+The distribution is **100% functional** and ready for use!
+
+**Final file:** `dist-simple/` - Copy and distribute!
