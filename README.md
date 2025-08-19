@@ -1,245 +1,245 @@
 # 🚀 SCUM Server Manager 2.0
 
-**Sistema completo de gerenciamento para servidores SCUM com interface web moderna, bot Discord integrado e controle avançado de veículos.**
+**Complete management system for SCUM servers with modern web interface, integrated Discord bot, and advanced vehicle control.**
 
-## 📋 O que é o SCUM Server Manager 2.0?
+## 📋 What is SCUM Server Manager 2.0?
 
-O SCUM Server Manager 2.0 é uma ferramenta desenvolvida especificamente para administradores de servidores SCUM que precisam de controle total sobre seu servidor. Diferente de outras ferramentas, este sistema oferece:
+SCUM Server Manager 2.0 is a tool specifically developed for SCUM server administrators who need total control over their server. Unlike other tools, this system offers:
 
-### 🎯 **Funcionalidades Principais:**
+### 🎯 **Main Features:**
 
-#### **1. Dashboard em Tempo Real**
-- Monitoramento de jogadores online/offline
-- Estatísticas do servidor (CPU, RAM, status)
-- Top 3 jogadores por fama
-- Controle de reinicializações automáticas
-- Status de bunkers ativos
+#### **1. Real-Time Dashboard**
+- Online/offline player monitoring
+- Server statistics (CPU, RAM, status)
+- Top 3 players by fame
+- Automatic restart control
+- Active bunker status
 
-#### **2. Sistema de Players Avançado**
-- Gerenciamento completo de jogadores (24+ jogadores)
-- Sistema de tags (Iniciante, VIP, Admin)
-- Controle de whitelist, ban e mute
-- Histórico de login e tempo de jogo
-- Configuração de permissões de administrador
+#### **2. Advanced Player System**
+- Complete player management (24+ players)
+- Tag system (Beginner, VIP, Admin)
+- Whitelist, ban, and mute control
+- Login history and playtime
+- Administrator permission configuration
 
-#### **3. Sistema de Fame (Reputação)**
-- Ranking automático baseado em pontos de fama
-- Top 8 jogadores com pontuações detalhadas
-- Sistema de porcentagem relativa ao líder
-- Atualizações automáticas de pontuação
+#### **3. Fame (Reputation) System**
+- Automatic ranking based on fame points
+- Top 8 players with detailed scores
+- Relative percentage system to leader
+- Automatic score updates
 
-#### **4. Bot Discord Integrado**
-- **Comandos automáticos**: `/rg` para registro de veículos
-- **Webhooks configuráveis** para 8 tipos de notificações:
-  - Painel de Players
+#### **4. Integrated Discord Bot**
+- **Automatic commands**: `/rg` for vehicle registration
+- **Configurable webhooks** for 8 types of notifications:
+  - Player Panel
   - Admin Log
   - Bunkers
-  - Status do Servidor
-  - Veículos
-  - Chat in Game
-  - Sistema de Fama
-  - Estatísticas Divertidas
+  - Server Status
+  - Vehicles
+  - In-Game Chat
+  - Fame System
+  - Fun Statistics
 
-#### **5. Controle de Veículos**
-- **Sistema de registro automático** de veículos
-- **Histórico completo** de eventos (desaparecimento, timer inativo)
-- **Controle de propriedade** (com/sem proprietário)
-- **Monitoramento de localização** (coordenadas X, Y, Z)
-- **Sistema de denúncias** via Discord
+#### **5. Vehicle Control**
+- **Automatic registration system** for vehicles
+- **Complete history** of events (disappearance, inactive timer)
+- **Ownership control** (with/without owner)
+- **Location monitoring** (X, Y, Z coordinates)
+- **Report system** via Discord
 
-#### **6. Painel de Administração**
-- Logs detalhados de comandos administrativos
-- Sistema de backup automático
-- Configurações avançadas do servidor
-- Monitoramento de recursos do sistema
+#### **6. Administration Panel**
+- Detailed logs of administrative commands
+- Automatic backup system
+- Advanced server configurations
+- System resource monitoring
 
-#### **7. Configurações do Servidor**
-- **General Settings**: Configurações básicas
-- **World Settings**: NPCs, animais e ambiente
-- **Vehicle Settings**: Veículos e combustível
-- **Damage Settings**: Multiplicadores de dano
-- **Respawn Settings**: Preços e tempos de respawn
-- **Special Resources**: Recursos especiais do servidor
+#### **7. Server Configuration**
+- **General Settings**: Basic configurations
+- **World Settings**: NPCs, animals, and environment
+- **Vehicle Settings**: Vehicles and fuel
+- **Damage Settings**: Damage multipliers
+- **Respawn Settings**: Prices and respawn times
+- **Special Resources**: Special server resources
 
 ## 🖼️ Screenshots
 
-### Dashboard Principal
+### Main Dashboard
 ![Dashboard](docs/images/01-dashboard.png)
 
-### Sistema de Players
+### Player System
 ![Players](docs/images/02-players.png)
 
-### Sistema de Fame
+### Fame System
 ![Fame System](docs/images/03-fame-system.png)
 
-### Configurações Discord
+### Discord Settings
 ![Discord Settings](docs/images/04-discord-settings.png)
 
-### Administração
+### Administration
 ![Administration](docs/images/05-administration.png)
 
-### Histórico de Veículos
+### Vehicle History
 ![Vehicles](docs/images/06-vehicles.png)
 
-### Configurações do Sistema
+### System Settings
 ![System Settings](docs/images/07-system-settings.png)
 
-### Configuração do Servidor
+### Server Configuration
 ![Server Configuration](docs/images/08-server-configuration.png)
 
-## 🛠️ Tecnologias e Arquitetura
+## 🛠️ Technologies and Architecture
 
 ### **Backend (Node.js)**
-- **Express.js**: API REST para comunicação com frontend
-- **Discord.js**: Bot Discord com comandos automáticos
-- **SQLite**: Banco de dados local para persistência
-- **JWT**: Sistema de autenticação seguro
-- **File System**: Monitoramento de logs do SCUM em tempo real
+- **Express.js**: REST API for frontend communication
+- **Discord.js**: Discord bot with automatic commands
+- **SQLite**: Local database for persistence
+- **JWT**: Secure authentication system
+- **File System**: Real-time SCUM log monitoring
 
 ### **Frontend (React + TypeScript)**
-- **React 18**: Interface moderna e responsiva
-- **TypeScript**: Tipagem estática para maior segurança
-- **Tailwind CSS**: Design system consistente
-- **Framer Motion**: Animações suaves
-- **PWA**: Funcionalidade offline e instalação mobile
+- **React 18**: Modern and responsive interface
+- **TypeScript**: Static typing for greater security
+- **Tailwind CSS**: Consistent design system
+- **Framer Motion**: Smooth animations
+- **PWA**: Offline functionality and mobile installation
 
-### **Integração SCUM**
-- **Monitoramento de logs**: Leitura automática dos arquivos de log do SCUM
-- **Webhooks**: Notificações em tempo real para Discord
-- **Controle de veículos**: Sistema de registro e monitoramento
-- **Sistema de fama**: Integração com estatísticas do jogo
+### **SCUM Integration**
+- **Log monitoring**: Automatic reading of SCUM log files
+- **Webhooks**: Real-time notifications to Discord
+- **Vehicle control**: Registration and monitoring system
+- **Fame system**: Integration with game statistics
 
-## 📁 Estrutura do Projeto
+## 📁 Project Structure
 
 ```
 ScumServerManager2.0/
-├── Backend/                    # Servidor Node.js
-│   ├── routes/                # APIs REST
-│   │   ├── players.js         # Gerenciamento de jogadores
-│   │   ├── vehicles.js        # Controle de veículos
-│   │   ├── famepoints.js      # Sistema de fama
-│   │   ├── discord.js         # Integração Discord
-│   │   └── server.js          # Status do servidor
+├── Backend/                    # Node.js server
+│   ├── routes/                # REST APIs
+│   │   ├── players.js         # Player management
+│   │   ├── vehicles.js        # Vehicle control
+│   │   ├── famepoints.js      # Fame system
+│   │   ├── discord.js         # Discord integration
+│   │   └── server.js          # Server status
 │   ├── src/
-│   │   ├── bot.js             # Bot Discord principal
-│   │   ├── vehicle_control.js # Sistema de controle de veículos
-│   │   ├── data/              # Dados e imagens do jogo
-│   │   └── middleware/        # Autenticação e validações
-│   └── server.js              # Servidor principal
-├── Frontend/                   # Interface React
+│   │   ├── bot.js             # Main Discord bot
+│   │   ├── vehicle_control.js # Vehicle control system
+│   │   ├── data/              # Game data and images
+│   │   └── middleware/        # Authentication and validations
+│   └── server.js              # Main server
+├── Frontend/                   # React interface
 │   ├── src/
-│   │   ├── components/        # Componentes reutilizáveis
-│   │   ├── pages/             # Páginas da aplicação
-│   │   └── services/          # Comunicação com API
-│   └── public/                # Assets públicos
-└── docs/                      # Documentação e screenshots
+│   │   ├── components/        # Reusable components
+│   │   ├── pages/             # Application pages
+│   │   └── services/          # API communication
+│   └── public/                # Public assets
+└── docs/                      # Documentation and screenshots
 ```
 
-## 🚀 Instalação e Configuração
+## 🚀 Installation and Configuration
 
-### **Pré-requisitos**
-- Node.js 18+ instalado
-- Servidor SCUM configurado e funcionando
-- Bot Discord criado (opcional, mas recomendado)
+### **Prerequisites**
+- Node.js 18+ installed
+- SCUM server configured and running
+- Discord bot created (optional, but recommended)
 
-### **1. Configuração do Backend**
+### **1. Backend Configuration**
 ```bash
 cd Backend
 npm install
 cp env.example .env
 ```
 
-**Configure o arquivo `.env`:**
+**Configure the `.env` file:**
 ```env
-# Configurações do Servidor SCUM
+# SCUM Server Configuration
 SCUM_LOG_PATH=C:\SCUM\SCUM\Saved\Logs\SCUM.log
 SCUM_ADMIN_LOG_PATH=C:\SCUM\SCUM\Saved\Logs\AdminLog.txt
 
-# Configurações do Bot Discord
-DISCORD_TOKEN=seu_token_do_bot
-DISCORD_CLIENT_ID=seu_client_id
+# Discord Bot Configuration
+DISCORD_TOKEN=your_bot_token
+DISCORD_CLIENT_ID=your_client_id
 
-# Configurações do Servidor Web
+# Web Server Configuration
 PORT=3001
-JWT_SECRET=sua_chave_secreta
+JWT_SECRET=your_secret_key
 ```
 
-### **2. Configuração do Frontend**
+### **2. Frontend Configuration**
 ```bash
 cd Frontend
 npm install
 npm run dev
 ```
 
-### **3. Configuração do Bot Discord**
-1. Crie um bot no [Discord Developer Portal](https://discord.com/developers/applications)
-2. Configure as permissões necessárias
-3. Adicione o token no arquivo `.env`
-4. Configure os webhooks para cada tipo de notificação
+### **3. Discord Bot Configuration**
+1. Create a bot in the [Discord Developer Portal](https://discord.com/developers/applications)
+2. Configure necessary permissions
+3. Add the token to the `.env` file
+4. Configure webhooks for each notification type
 
-## ⚙️ Funcionalidades Específicas
+## ⚙️ Specific Features
 
-### **Sistema de Veículos**
-- **Registro automático**: Veículos são registrados automaticamente quando aparecem no servidor
-- **Controle de propriedade**: Sistema para vincular veículos a jogadores
-- **Monitoramento**: Acompanhamento de localização e status
-- **Comandos Discord**: `/rg` para registro manual de veículos
+### **Vehicle System**
+- **Automatic registration**: Vehicles are automatically registered when they appear on the server
+- **Ownership control**: System to link vehicles to players
+- **Monitoring**: Tracking of location and status
+- **Discord commands**: `/rg` for manual vehicle registration
 
-### **Sistema de Fame**
-- **Pontuação automática**: Baseada nas ações dos jogadores no servidor
-- **Ranking dinâmico**: Atualização em tempo real
-- **Estatísticas detalhadas**: Porcentagem, histórico de mudanças
+### **Fame System**
+- **Automatic scoring**: Based on player actions on the server
+- **Dynamic ranking**: Real-time updates
+- **Detailed statistics**: Percentage, change history
 
-### **Integração Discord**
-- **8 webhooks configuráveis** para diferentes tipos de notificação
-- **Comandos automáticos** para administração
-- **Notificações em tempo real** de eventos importantes
+### **Discord Integration**
+- **8 configurable webhooks** for different notification types
+- **Automatic commands** for administration
+- **Real-time notifications** of important events
 
-## 📚 Documentação Detalhada
+## 📚 Detailed Documentation
 
-- **[Configuração Completa](Docs/README.md)**: Guia passo a passo
-- **[API Endpoints](Docs/Endpoints/)**: Documentação da API
-- **[Sistema de Autenticação](Docs/RESUMO_SISTEMA_AUTH.md)**: Como funciona a segurança
-- **[Controle de Veículos](Docs/RESUMO_VEHICLE_CONTROL.md)**: Sistema de veículos detalhado
-- **[Bot Discord](Docs/RESUMO_FINAL_BOT.md)**: Configuração do bot
+- **[Complete Configuration](Docs/README.md)**: Step-by-step guide
+- **[API Endpoints](Docs/Endpoints/)**: API documentation
+- **[Authentication System](Docs/RESUMO_SISTEMA_AUTH.md)**: How security works
+- **[Vehicle Control](Docs/RESUMO_VEHICLE_CONTROL.md)**: Detailed vehicle system
+- **[Discord Bot](Docs/RESUMO_FINAL_BOT.md)**: Bot configuration
 
-## 🎮 Compatibilidade
+## 🎮 Compatibility
 
-- **SCUM**: Versão 1.0.1.3.96391 (testado)
-- **Sistemas**: Windows 10/11
-- **Node.js**: 18.x ou superior
+- **SCUM**: Version 1.0.1.3.96391 (tested)
+- **Systems**: Windows 10/11
+- **Node.js**: 18.x or higher
 - **Discord**: Bot API v10
 
-## 🤝 Contribuição
+## 🤝 Contributing
 
-1. Faça um Fork do projeto
-2. Crie uma Branch para sua Feature (`git checkout -b feature/NovaFuncionalidade`)
-3. Commit suas mudanças (`git commit -m 'Adiciona nova funcionalidade'`)
-4. Push para a Branch (`git push origin feature/NovaFuncionalidade`)
-5. Abra um Pull Request
+1. Fork the project
+2. Create a Feature Branch (`git checkout -b feature/NewFeature`)
+3. Commit your changes (`git commit -m 'Add new feature'`)
+4. Push to the Branch (`git push origin feature/NewFeature`)
+5. Open a Pull Request
 
-## 📄 Licença
+## 📄 License
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+This project is under the MIT license. See the [LICENSE](LICENSE) file for more details.
 
-## 👨‍💻 Autor
+## 👨‍💻 Author
 
 **Paulo Pedreiro**
 - GitHub: [@PauloPedreiro](https://github.com/PauloPedreiro)
-- Projeto desenvolvido especificamente para a comunidade SCUM
+- Project developed specifically for the SCUM community
 
-## 🙏 Agradecimentos
+## 🙏 Acknowledgments
 
-- Comunidade SCUM Brasil
-- Desenvolvedores das bibliotecas utilizadas
-- Testadores e contribuidores do projeto
+- SCUM Brazil Community
+- Developers of the libraries used
+- Project testers and contributors
 
 ---
 
-⭐ **Se este projeto te ajudou a gerenciar seu servidor SCUM, considere dar uma estrela no repositório!**
+⭐ **If this project helped you manage your SCUM server, consider giving it a star in the repository!**
 
-## 📞 Suporte
+## 📞 Support
 
-Para dúvidas, sugestões ou problemas:
-- Abra uma [Issue](https://github.com/PauloPedreiro/Scum-Server-Manager/issues) no GitHub
-- Consulte a documentação na pasta `Docs/`
+For questions, suggestions, or issues:
+- Open an [Issue](https://github.com/PauloPedreiro/Scum-Server-Manager/issues) on GitHub
+- Consult the documentation in the `Docs/` folder
